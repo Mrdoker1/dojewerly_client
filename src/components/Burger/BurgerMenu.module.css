@@ -1,0 +1,84 @@
+  .burgerMenu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%; /* Ширина меню */
+    height: calc(100 * var(--vh));
+    min-height: -webkit-fill-available;
+    background-color: #F4F4F2;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    overflow: hidden;
+    padding: 0 5%; /* Отступы слева и справа */
+  }
+  .menuItemsWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;  /* Это займет оставшееся пространство */
+  }
+
+  .menuHeader{
+    padding: 0px 20px;
+  }
+  
+  .burgerMenu.show {
+    display: flex;
+  }
+  
+  .burgerMenu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .burgerMenu li {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 10px 20px;
+  }
+  
+  .burgerMenu li:hover {
+    filter: invert(89%) sepia(0%) saturate(76%) hue-rotate(174deg) brightness(92%) contrast(84%);
+  }
+
+  .menuHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .closeIcon, .searchIcon {
+    cursor: pointer;
+  }
+
+  .menuHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 20px;
+  }
+  
+  .burgerIcon, .searchIcon {
+    cursor: pointer;
+    display: flex;
+  }
+
+  .doxButton{
+    min-width: 140px;
+  }
+  
+  .logo {
+    width: 30px;
+    height: 30px;
+  }

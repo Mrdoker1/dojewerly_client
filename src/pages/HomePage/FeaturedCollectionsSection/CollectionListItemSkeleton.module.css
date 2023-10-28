@@ -1,0 +1,47 @@
+.container {
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: 0.1s linear;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    align-items: center;
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.08);
+  }
+  
+  .imageSkeleton {
+    background: linear-gradient(90deg, #f0f0f0, #e0e0e0, #f0f0f0);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .dataSkeleton {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px;
+  }
+  
+  .nameSkeleton, .descriptionSkeleton {
+    background: linear-gradient(90deg, #f0f0f0, #e0e0e0, #f0f0f0);
+    animation: shimmer 1.5s infinite;
+    height: 20px;
+  }
+  
+  .nameSkeleton {
+    width: 60%;
+  }
+  
+  .descriptionSkeleton {
+    width: 80%;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  

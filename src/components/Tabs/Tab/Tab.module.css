@@ -1,0 +1,16 @@
+.buttonTab {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: none;
+    /* Можете добавить другие стили по вашему усмотрению */
+  }
+
+  .buttonTabInactive{
+    border: 1px solid transparent;
+  }
+
+  .buttonTabInactive:hover {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: var(--grey-3);
+  }

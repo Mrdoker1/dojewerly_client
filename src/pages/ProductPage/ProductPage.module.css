@@ -1,0 +1,193 @@
+.container {
+    flex: 1; /* растягивает контейнер на все свободное пространство */
+    max-width: 1180px;
+    width: 100%;
+    height: inherit;
+}
+
+.productSection {
+    padding: 60px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.productGallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.productDetailsWrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.productDetailsHeading{
+    display: flex;
+    flex-direction: column;
+}
+
+.productDetailsHeadingMobile{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.productDetails {
+    position: sticky;
+    top: 170px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 400px;
+    height: fit-content;
+    padding: 0 14px;
+}
+
+.productName {
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.productProperties {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font: normal 400 14px/19px "Jost";
+    list-style: none;
+    color:var(--grey-1);
+    margin-left: -6px;
+}
+
+.productProperties li {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.productDetailsDescription {
+    color: var(--grey-1);
+    font: var(--jost-14-regular);
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.solid {
+    border-top: 1px solid #F4F4F2;
+}
+
+.productDetailsPriceWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    background-color: var(--grey-3);
+}
+
+.price{
+    font: var(--jost-21-regular);
+    color: var(--black-1);
+    text-transform: uppercase;
+}
+
+.stock {
+    font: var(--jost-14-regular);
+    color: var(--grey-1);
+}
+
+.favouriteIcon {
+    opacity: 1;
+}
+
+.favouriteIcon svg {
+    width: 24px;
+    height: 24px;
+}
+
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .productDetails{
+        max-width: none;
+        width: 100%;
+    }
+
+    .productDetailsHeading{
+        display: none;
+    }
+
+    .productDetailsHeadingMobile{
+        display: flex;
+    }
+
+    .productGallery {
+        overflow-x: auto;
+        display: grid;
+        grid-auto-flow: column;
+        width: 100%;
+    }
+
+    .productGallery div:only-child {
+        display: flex;
+    }
+
+    .productSection {
+        flex-direction: column;
+        padding-top: 0;
+        gap: 0;
+    }
+
+    .productGallery{
+        gap: 14px;
+    }
+
+    .productGallery div:only-child {
+        /* Ваши стили для одного изображения */
+        width: 100%; /* Например, растягивает изображение на всю ширину */
+        height:fit-content;
+        background-color: white;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .productGallery div:not(:only-child) {
+        width: 300px;
+        height:fit-content;
+        margin: 20px 0px;
+    }
+
+    .productGallery div:last-child {
+        margin-right: 14px;
+    }
+    
+    /* Добавляем отступ слева для первого элемента в галерее */
+    .productGallery div:first-child {
+        margin-left: 14px;
+    }
+
+    .productGallery div:only-child img{
+        width: -webkit-fill-available;
+        height:auto;
+        margin: 14px;
+        background-color: white;
+    }
+}

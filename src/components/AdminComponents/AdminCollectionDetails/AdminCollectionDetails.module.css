@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    align-items: flex-start; /* Выравнивание элементов по верхней части */
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    font: var(--jost-14-regular);
+  }
+  
+
+.radioGroupContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+.productsContainer {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  width: 100%;
+}
+  

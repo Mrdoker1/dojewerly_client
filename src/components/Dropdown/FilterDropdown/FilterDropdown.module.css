@@ -1,0 +1,49 @@
+ .container {
+    max-width: fit-content;
+    transition: all var(--transition-1);
+ }
+
+.filerDropdown{
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font: var(--jost-13-regular);
+    color: var(--black-1);
+    width: max-content;
+}
+
+.container:hover {
+    background-color: var(--grey-3);
+    border-radius: 4px;
+}
+
+.filerDropdown.active {
+    position: relative;
+    /* border-bottom: 2px solid var(--grey-2); */
+    background-color: var(--grey-3);
+}
+
+.filerDropdown.active::after {
+    content: "";
+    display: block;
+    width: 4px;
+    height: 4px;
+    background-color: var(--black-1); /* или любой другой цвет для точки */
+    border-radius: 50%; /* чтобы сделать его круглым */
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    z-index: 1;
+}
+
+@media screen and (max-width: 800px)  {
+    .container{
+        width: 100%;
+        max-width: none;
+    }
+
+    .filerDropdown{
+        width: auto;
+    }
+  }
+

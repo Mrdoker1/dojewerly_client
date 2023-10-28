@@ -1,0 +1,95 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.imageContainer {
+  cursor: move;
+  position: relative;
+  box-sizing: border-box;
+  width: 135px;
+  height: 135px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+}
+
+.fileInputContainer {
+  border: 2px dashed var(--grey-2); /* Стиль границы */
+  transition: all var(--transition-1);
+}
+
+.fileInputContainer:hover {
+  background-color: var(--grey-3);
+}
+
+
+.fileInputContainer:hover .uploadIcon{
+  color: var(--grey-1);
+  transition: all  var(--transition-1);
+}
+
+.imageWrapper {
+  position: relative;
+  background-color: var(--grey-3);
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.imageWrapper:hover .deleteIcon {
+  opacity: 1;
+}
+
+.imageWrapper:hover {
+  background-color: rgba(0, 0, 0, 1); /* Цвет и прозрачность затемнения */
+}
+
+.imageWrapper:hover .image {
+  opacity: 0.5; /* Прозрачность изображения при наведении */
+}
+
+.deleteIcon {
+  width: 32px;
+  height: 32px;
+  color: var(--white);
+  cursor: pointer;
+  transition: all var(--transition-1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.deleteIcon:hover {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.image {
+  height: 100%;
+}
+
+.fileInput {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.uploadIcon {
+  height: 48px;
+  transition: all  var(--transition-1);
+  color: var(--grey-2);
+}
+
+.uploadIcon:hover {
+  color: var(--grey-1);
+}

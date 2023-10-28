@@ -1,0 +1,67 @@
+.searchComponent {
+    position: sticky;
+    top: 0; /* Значение будет переопределено в компоненте */
+    background-color: white; /* Или любой другой цвет фона */
+    width: 100%;
+    /* border-top: 1px solid var(--grey-2); */
+    z-index: 49;
+  }
+  
+  .container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 10px; /* Добавьте отступы по своему усмотрению */
+  }
+  
+  .searchBox {
+    display: flex;
+    justify-content: space-between; /* Или любой другой тип распределения по вашему выбору */
+    align-items: center;
+    gap: 8px;
+    padding: 24px 0 32px 0;
+  }
+  
+  .searchInput {
+    flex-grow: 1; /* Позволяет инпуту занимать все доступное пространство */
+    margin-right: 10px; /* Отступ от кнопки */
+    font: var(--jost-21-regular);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* Другие стили для вашего поля ввода */
+  }
+
+  .searchIcon{
+    width: 30px;
+    height: 30px;
+  }
+
+  .clearIcon, .searchIcon{
+    cursor: pointer;
+    transition: all var(--transition-1);
+    color: var(--grey-2);
+  }
+
+  .clearIcon:hover, .searchIcon:hover{
+    color: var(--grey-1);
+  }
+
+  .searchButton, .closeSearchButton, .openSearchButton {
+    /* Стили для ваших кнопок */
+  }
+
+  @media screen and (max-width: 764px)  {
+
+    .searchIcon{
+      width: 24px;
+      height: 24px;
+      letter-spacing: 2px;
+    }
+
+    .searchInput {
+      font: var(--jost-16-regular);
+    }
+
+    .searchBox {
+      padding: 4px 0 12px 0;
+    }
+  }

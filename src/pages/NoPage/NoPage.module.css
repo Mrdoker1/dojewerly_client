@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+    padding: 14px;
+}
+
+.heading{
+    font: var(--cormorant-52-medium);
+}
+
+.info{
+    font: var(--jost-16-regular);
+}
+
+@media screen and (max-width: 480px)  {
+    .heading{
+        font: var(--cormorant-29-medium);
+    }
+    
+    .info{
+        font: var(--jost-16-regular);
+    }
+    
+  }

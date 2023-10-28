@@ -1,0 +1,122 @@
+/* HeroSection.module.css */
+
+.heroSection {
+    width: 100%;
+    height: 630px;
+    overflow: hidden;
+    position: relative;
+}
+
+.heroContent {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    gap: 40px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.heroCareGuideCTA{
+    color: var(--black-1);
+    width: auto;
+    padding: 0px;
+    box-sizing: border-box;
+    align-self: auto;
+}
+
+.heroCareGuideCTA svg{
+    color: var(--black-1) !important;
+}
+
+.heroCareGuideCTA:hover {
+    box-shadow: inset 0px -1px 0px #161412;
+    border-radius: 0;
+    padding: 0;
+}
+
+.heroHeading {
+    max-width: 800px;
+    margin: 0 10px;
+    font: var(--cormorant-52-medium); /* замените на соответствующее значение из вашего файла variables.scss */
+}
+
+.heroButtons {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.videoWrapper {
+    position: relative;
+}
+
+.videoWrapper:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 630px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(244, 244, 242, 0.6);
+}
+
+.heroVideo {
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 1024px) { /* замените на соответствующее значение из вашего файла variables.scss */
+    .heroSection {
+        height: 500px;
+    }
+    
+    .heroVideo {
+        transform: scale(2, 2);
+    }
+}
+
+@media screen and (max-width: 920px) { /* замените на соответствующее значение из вашего файла variables.scss */
+    .heroContent {
+        gap: 20px;
+    }
+    
+    .heroVideo {
+        transform: scale(2.2, 2.7);
+    }
+}
+
+@media screen and (max-width: 480px) { /* замените на соответствующее значение из вашего файла variables.scss */
+    .heroSection {
+        height: 340px;
+    }
+
+    .heroVideo {
+        transform: scale(2.5, 3.5);
+    }
+
+    .heroContent {
+        margin-top: 80px;
+        justify-content: flex-start;
+    }
+
+    .heroHeading {
+        font: var(--cormorant-29-medium); /* замените на соответствующее значение из вашего файла variables.scss */
+    }
+
+    .heroButtons{
+        gap: initial;
+    }
+}

@@ -1,0 +1,22 @@
+.gradientImage {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  filter: grayscale(100%);
+  opacity: 20%;
+}
+
+/* .gradientImage:hover {
+  opacity: 40%;
+} */
+
+.gradientOverlay {
+  background: linear-gradient(to right, white 1%, transparent 100%);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

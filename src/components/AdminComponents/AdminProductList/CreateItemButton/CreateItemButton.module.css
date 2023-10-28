@@ -1,0 +1,31 @@
+.createButtonTitle {
+    font: var(--jost-13-regular);
+    color: var(--black-1);
+    text-transform: uppercase;
+  }
+  
+  .createButton {
+    display: flex;
+    cursor: pointer;
+    padding: 8px;
+    position: relative;
+    transition: all var(--transition-1);
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .createButton:hover {
+    border: 1px solid #ccc;
+    background-color: var(--grey-3); /* Светло-серый фон при наведении */
+  }
+
+  .image {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    border-radius: 2px;
+    background-color: var(--grey-3); /* Цвет фона иконки */
+  }

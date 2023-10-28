@@ -1,0 +1,52 @@
+.container {
+    display: flex;
+    flex: 1 1;
+    max-width: 1180px;
+    height: inherit;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 40px;
+  }
+
+  .heading{
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .collections {
+    max-width: inherit;
+    width: -webkit-fill-available;
+    display: grid;
+    row-gap: 20px;
+    column-gap: 20px;
+    grid-template-columns: repeat(2, 1fr); /* 3 равных столбца */
+    justify-items: start;
+  }
+  
+  .loadingIndicator,
+  .errorIndicator {
+    margin-top: 20px;
+  }
+  
+
+  @media screen and (max-width: 764px)  {
+    .collections{
+      padding: 0 14px;
+      row-gap: 20px;
+      column-gap: 14px;
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    h1 {
+      font: var(--cormorant-29-medium);
+    }
+
+    .heading {
+      padding: 20px 0;
+      gap: 4px;
+    }
+  }

@@ -1,0 +1,47 @@
+.productCardSkeleton {
+    /* те же стили, что и у .productCard */
+    position: relative;
+    min-width: 140px;
+    max-width: 370px;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .infoContainerSkeleton {
+    /* те же стили, что и у .infoContainer */
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow: hidden;
+  }
+  
+  .imageSkeleton, .nameSkeleton, .infoSkeleton, .priceSkeleton {
+    background: linear-gradient(90deg, #f0f0f0, #e0e0e0, #f0f0f0);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  
+  .imageSkeleton {
+    width: 100%;
+    height: 140px;
+  }
+  
+  .nameSkeleton, .infoSkeleton {
+    height: 20px;
+    width: 70%;
+  }
+  
+  .priceSkeleton {
+    height: 24px;
+    width: 50%;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  

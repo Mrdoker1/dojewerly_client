@@ -1,0 +1,121 @@
+.successMessage, .errorMessage, .infoMessage, .defaultMessage {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  align-items: center;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font: var(--jost-12-regular);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.successMessage {
+  /* border: 1px solid green; */
+  background-color: rgb(231, 253, 236);
+  color: green;
+}
+
+.errorMessage {
+  /* border: 1px solid red; */
+  background-color: rgb(253, 231, 235);
+  color: red;
+}
+
+.infoMessage {
+  /* border: 1px solid red; */
+  background-color: rgb(231, 242, 253);
+  color: rgb(0, 94, 255);
+}
+
+.defaultMessage {
+  /* border: 1px solid red; */
+  background-color: var(--grey-3);
+  color: var(--grey-1);
+}
+
+.icon {
+  cursor: pointer;
+  height: 16px;
+  width: 16px;
+  margin-left: 10px;
+}
+
+.icon:hover {
+  transition: all var(--transition-1);
+}
+
+.successMessage .icon:hover {
+  background-color: rgba(43, 255, 0, 0.1);
+  border-radius: 30%;
+}
+
+.errorMessage .icon:hover {
+  background-color: rgba(255, 21, 0, 0.1);
+  border-radius: 30%;
+}
+
+.infoMessage .icon:hover {
+  background-color: rgba(0, 115, 255, 0.1);
+  border-radius: 30%;
+}
+
+.defaultMessage .icon:hover {
+  background-color: rgba(49, 49, 49, 0.1);
+  border-radius: 30%;
+}
+
+.absoluteContainer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  max-width: fit-content;
+  border-radius: 5px;
+}
+
+.timeoutBar {
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation-name: RightToLeft;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+.successMessage .timeoutBar {
+  background-color: rgba(0, 128, 0, 0.3);
+}
+
+.errorMessage .timeoutBar {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+.infoMessage .timeoutBar {
+  background-color: rgba(0, 145, 255, 0.3);
+}
+
+.defaultMessage .timeoutBar {
+  background-color: rgba(77, 77, 77, 0.3);
+}
+
+@keyframes LeftToRight {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
+
+@keyframes RightToLeft {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}

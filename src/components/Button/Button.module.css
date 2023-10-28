@@ -1,0 +1,156 @@
+.button {
+  /* Общие стили для всех кнопок */
+  line-height: normal !important;
+  width: fit-content;
+  display: flex;
+  height: 40px;
+  padding: 0px 20px;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  border-radius: var(--input-radius);
+  cursor: pointer;
+  /* text-transform: uppercase; */
+  letter-spacing: 1px;
+  /* transition: background-color var(--transition-1), color var(--transition-1); */
+  transition: all var(--transition-1);
+  border: 1px solid transparent;
+  box-sizing: border-box;
+}
+
+.fullWidth {
+  position: relative;
+  width: 100%;
+}
+
+.noHover:hover {
+  border: none !important;
+  filter: brightness(0.8);
+}
+
+/* Button types */
+
+.primary {
+  background: var(--black-1);
+  gap: 8px;
+  color: var(--grey-3);
+}
+
+.primary:hover {
+  background-color: transparent;
+  border: 1px solid var(--black-1);
+  color: var(--black-1);
+}
+
+.secondary {
+  background: none;
+  gap: 4px;
+  color: var(--black-1);
+  border: 1px solid var(--grey-1);
+}
+
+.secondary:hover {
+  background-color: var(--black-1);
+  color: var(--grey-3);
+  border: 1px solid var(--black-1);
+}
+
+.text {
+  background: none;
+  gap: 4px;
+  color: var(--grey-1);
+}
+
+.text:hover {
+  background: none;
+  color: var(--black-1);
+}
+
+/* Button sizes */
+
+.small {
+  font: var(--jost-12-regular);
+  height: 20px;
+}
+
+.default {
+  font: var(--jost-12-regular);
+  height: 40px;
+}
+
+.large {
+  font: var(--jost-16-regular);
+  height: 48px;
+}
+
+.primary .icon {
+  color: var(--grey-3);
+}
+
+.secondary .icon {
+  color: var(--black-1);
+}
+
+.text .icon {
+  color: var(--grey-1);
+}
+
+
+/* Ховер-стили для иконок */
+
+.primary:hover .icon {
+  color: var(--black-1);
+}
+
+.secondary:hover .icon {
+  color: var(--grey-3);
+}
+
+.text:hover .icon {
+  color: var(--black-1);
+}
+
+/* Icon styles */
+
+.small .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.default .icon {
+  width: 20px;
+  height: 20px;
+}
+
+.large .icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Disabled styles */
+
+.button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.button.secondary:disabled {
+  opacity: 0.9;
+  background-color:var(--grey-3);
+  border: 1px solid transparent;
+}
+
+@media screen and (max-width: 480px) {
+  .small {
+    font: var(--jost-12-regular);
+  }
+  
+  .default {
+    font: var(--jost-12-regular);
+  }
+  
+  .large {
+    font: var(--jost-12-regular);
+  }
+}

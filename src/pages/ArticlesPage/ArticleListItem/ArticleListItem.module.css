@@ -1,0 +1,49 @@
+.container{
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-bottom: 1px solid var(--grey-2);
+    padding: 20px;
+    cursor: pointer;
+    transition: all var(--transition-1);
+}
+
+.container:hover{
+    background-color: var(--grey-3);
+}
+
+.heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name{
+    font: var(--cormorant-29-medium);
+    width: fit-content;
+}
+
+.icon{
+    width: 24px;
+    height: 24px;
+}
+
+.description {
+    font: var(--jost-14-regular);
+    color: var(--grey-1);
+    word-break: break-all;
+    max-height: 40px; /* Примерное значение; настройте его в соответствии с вашими потребностями */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* количество строк, которые вы хотите отображать */
+    -webkit-box-orient: vertical; /* необходимо для работы line-clamp */
+    text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 764px)  {
+    .name {
+        font: var(--cormorant-24-medium); 
+    }
+  }

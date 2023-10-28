@@ -1,0 +1,50 @@
+.productSlider {
+    margin-bottom: 40px;
+}
+
+.swiper {
+    width: 100%;
+    height: inherit;
+}
+
+.swiperSlide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+}
+
+.swiperSlide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sliderHeading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+    gap: 4px;
+}
+
+.productSliderSubheading {
+    font: var(--jost-14-regular);
+    color: var(--grey-1);
+}
+
+.subsection{
+    font: var(--cormorant-29-medium);
+}
+
+@media screen and (max-width: var(--tablet)) {
+    .sliderHeading {
+        padding: 20px 0;
+    }
+}
+
+@media screen and (max-width: var(--mobile)) {
+    .sliderHeading {
+        padding: 40px 0;
+    }
+}

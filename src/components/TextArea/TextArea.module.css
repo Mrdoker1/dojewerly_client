@@ -1,0 +1,81 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font: var(--jost-15-regular);
+    width: 100%;
+    transition: all var(--transition-1);
+  }
+  
+  label {
+    color: var(--grey-1);
+  }
+  
+  .icon{
+    width: 32px;
+    height: 32px;
+    color: var(--grey-2);
+    cursor: pointer;
+  }
+  
+  .icon:hover{
+    border-radius:8px;
+    transition: all var(--transition-1);
+    background-color: var(--grey-2);
+    color: var(--grey-1);
+  }
+  
+  .inputStyle {
+    display: flex;
+    justify-content: flex-end;
+    height: 40px;
+    padding: 8px 0px 0px 12px;
+    gap: 12px;
+    align-self: stretch;
+    border-radius:  var(--input-radius);
+    position: relative;
+    border-bottom: 3px solid var(--grey-2);
+    border-left: 1px solid var(--grey-2);
+    border-right: 1px solid var(--grey-2);
+    border-top: 1px solid var(--grey-2);
+    transition: all var(--transition-1);
+    height: auto; /* делает высоту автоматической, чтобы textarea могла подстроиться */
+    min-height: 40px; /* минимальная высота, как у инпута */
+  }
+  
+  .inputStyle textarea {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    height: 100%; /* занимает всю высоту контейнера */
+    padding: 0; /* убирает стандартные отступы */
+    font: inherit; /* наследует шрифт от родительского элемента */
+  }
+  
+  .inputStyle:hover {
+    border-color: var(--black-1);
+  }
+  
+  /* При фокусе */
+  .inputStyle.inputFocus {
+    border-bottom-color: black;
+  }
+  
+  /* При наличии ошибки */
+  .inputStyle.inputError {
+    border-bottom-color: red;
+  }
+  
+  .message {
+    /* стили для вашего сообщения */
+    color: var(--grey-1);
+    font: var(--jost-12-regular);
+  }
+  
+  .errorText {
+    color: red;  /* сообщение будет красным, когда есть ошибка */
+  }
+
+  .children{
+  }

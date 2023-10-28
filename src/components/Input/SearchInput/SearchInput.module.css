@@ -1,0 +1,6 @@
+.searchInput {
+    border: none;
+    border-bottom: 1.3px solid var(--grey-2);
+    border-radius: 0;
+    max-width: 200px;
+}
