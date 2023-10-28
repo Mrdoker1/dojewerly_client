@@ -1,0 +1,105 @@
+.card {
+    cursor: pointer;
+    width: 180px;
+    border-radius: 10px 10px 200px 200px;
+    overflow: hidden;
+    position: relative;
+    color: var(--white);
+    background-color: black;
+  }
+
+  .card:hover .productImage{
+    transition: all 0.3s; /* Анимация перехода цвета */
+    transform: scale(1.1);
+  }
+  
+  .topSection {
+    z-index: 1;
+    background-color: black;
+    height: 54px; /* Фиксированная высота черной секции */
+    position: relative; /* Добавьте это свойство, чтобы создать контекст для абсолютно позиционированного элемента */
+  }
+
+  .infoSection {
+    width: -webkit-fill-available;
+    z-index: 2;
+    padding: 8px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+  }
+  
+  .titleAndIcon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .productName {
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font: var(--jost-13-regular);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .productDescription {
+    font: var(--jost-12-light);
+    color: var(--grey-2);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .productPrice {
+    color: var(--white);
+    font: var(--jost-16-regular);
+  }
+  
+  .imageSection {
+    position: relative;
+    height: calc(100% - 54px);
+    z-index: 0; /* Устанавливаем нижний z-index, чтобы псевдоэлемент был выше */
+  }
+
+  .imageSection::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40%; /* 30% градиента относительно высоты .imageSection */
+    background: linear-gradient(to bottom, black 0%, transparent 100%);
+    z-index: 1; /* Устанавливаем более высокий z-index, чтобы псевдоэлемент был выше */
+  }
+  
+  .productImage {
+    transition: all 0.3s; /* Анимация перехода цвета */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: var(--black-1);
+  }
+
+  .heartIcon {
+    cursor: pointer;
+  }
+  
+  .heartIcon path {
+    transition: fill 0.3s; /* Анимация перехода цвета */
+    fill: white;
+  }
+  
+  /* Примените новый цвет заливки (белый) при наведении курсора */
+  .heartIcon:hover path {
+    fill: transparent;
+  }
+
+  @media screen and (max-width: 480px)  {
+
+    .card{
+      width: 47%;
+    }
+  }

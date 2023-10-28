@@ -1,0 +1,19 @@
+.container {
+  font: var(--cormorant-14-medium);
+}
+
+.link {
+  color: var(--grey-1);
+  text-decoration: none;
+  transition: box-shadow 0.3s;
+  padding: 4px; /* Увеличиваем площадь для удобного наведения */
+  display: inline-block; /* чтобы padding работал корректно */
+}
+
+.link:hover {
+  box-shadow: inset 0px -1px 0px #161412;
+}
+
+.lastLink {
+  color: var(--black-1);
+}

@@ -1,0 +1,28 @@
+.shareBlock {
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 8px;
+  justify-content: center;
+  background-color: var(--grey-3);
+}
+
+.description {
+  font: var(--jost-14-regular);
+  color: var(--grey-1);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap:4px;
+}
+
+@media screen and (max-width: 764px)  {
+
+  .shareBlock{
+    max-width: none;
+  }
+}

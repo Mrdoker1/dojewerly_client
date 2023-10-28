@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  cursor: pointer;
+  padding: 8px;
+  position: relative;
+  transition: all var(--transition-1);
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 640px;
+}
+
+.container:hover {
+  border: 1px solid #ccc;
+  background-color: var(--grey-3); /* Светло-серый фон при наведении */
+}
+
+.deleteIcon {
+  width: 32px;
+  height: 32px;
+  color: var(--grey-2);
+  cursor: pointer;
+  transition: all var(--transition-1);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  opacity: 0;
+}
+
+.container:hover .deleteIcon {
+  opacity: 1;
+}
+
+.deleteIcon:hover {
+  border-radius: 8px;
+  background-color: var(--grey-2);
+  color: var(--grey-1);
+}
+
+.selected {
+  border: 1px solid var(--grey-1); /* или другой цвет для темного бордера */
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}

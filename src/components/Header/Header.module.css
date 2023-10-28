@@ -1,0 +1,154 @@
+/* Общие стили для хэдера */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    /* Добавьте стили для .header здесь */
+  }
+
+  .fixedHeader {
+    position: fixed; /* Используйте fixed вместо absolute */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100; /* Чтобы хэдер был поверх остального контента */
+    width: 100%; /* Чтобы хэдер растягивался на всю ширину экрана */
+    /* border-bottom: 1px solid var(--grey-2); */
+  }
+
+  .transparentHeader {
+    background-color: transparent;
+  }
+
+  .solidHeader {
+    /* border-bottom: 1px solid var(--grey-2); */
+    background-color: var(--white); /* Установите цвет, который вы хотите при прокрутке */
+  }
+
+  .header.scrolled {
+    background-color: var(--white); /* Установите цвет, который вы хотите при прокрутке */
+  }
+  
+  .headerWrapper.scrolled {
+    height: 66px;
+  }
+  
+  .headerWrapper {
+    position: relative;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--black-1);
+    font: var(--jost-13-regular);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    max-width: var(--desktop);
+    transition: var(--transition-2);
+    margin: 0 auto;
+    z-index: 50;
+    /* Добавьте дополнительные стили для .headerWrapper здесь */
+  }
+  
+  .burgerIcon {
+    display: none;
+    /* Добавьте стили для .burgerIcon здесь */
+  }
+  
+  .doxIcon {
+    color: black;
+    z-index: 4;
+  }
+  
+  .logo {
+    transition: var(--transition-1);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    /* Добавьте стили для .logo здесь */
+  }
+
+  .logo:hover {
+    fill: var(--grey-1);
+    color: var(--grey-1);
+    /* Добавьте стили для .menuNavigation li:hover здесь */
+  }
+  
+  .menuNavigation ul {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    list-style-type: none;
+    /* Добавьте стили для .menuNavigation ul здесь */
+  }
+  
+  .menuNavigation li {
+    display: flex;
+    position: relative;
+    cursor: pointer;
+    transition: var(--transition-1);
+  }
+  
+  .menuNavigation li:hover {
+    color: var(--grey-1);
+    /* Добавьте стили для .menuNavigation li:hover здесь */
+  }
+
+  /* .menuNavigation li::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0;
+    background: var(--grey-1);
+    transition: width 0.3s ease-in-out;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+  }
+  
+  .menuNavigation li:hover::after {
+    width: 100%;
+  } */
+
+  .burgerIcon {
+    display: none; /* Скрыто на больших экранах */
+  }
+
+  .backdrop {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Черный цвет фона с некоторой прозрачностью */
+    z-index: 40; /* Убедитесь, что z-index выше других элементов, которые нужно затемнить */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Медиа-запросы для различных размеров экрана */
+  @media screen and (max-width: 768px) {
+    /* Стили для хэдера при максимальной ширине 768px */
+    .headerWrapper {
+      height: 50px;
+      padding: 0px 14px;
+      /* Добавьте дополнительные стили для .headerWrapper здесь */
+    }
+  
+    .burgerIcon {
+      display: flex;
+      /* Добавьте стили для .burgerIcon при максимальной ширине 768px */
+    }
+
+    .logo {
+      /* Добавьте стили для .logo здесь */
+    }
+  
+    .menuNavigation ul li:not(:nth-last-child(2)) {
+      display: none;
+      /* Добавьте дополнительные стили для элементов меню при максимальной ширине 768px */
+    }
+  }

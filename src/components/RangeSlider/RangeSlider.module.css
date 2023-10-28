@@ -1,0 +1,47 @@
+/* PriceRangeDropdown.module.css */
+.container {
+    position: relative;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font: var(--jost-13-regular);
+    color: var(--black-1);
+    max-width: 180px;
+    transition: all var(--transition-1);
+}
+
+.container:hover {
+    background-color: var(--grey-3);
+    border-radius: 4px;
+}
+
+.dropdown {
+    cursor: pointer;
+    padding: 8px 12px;
+}
+
+.sliderContainer {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    border: 1px solid var(--grey-2);
+    z-index: 3;
+    padding: 10px;
+}
+
+.priceDisplay {
+    display: flex;
+    justify-content: space-between;
+    font: var(--jost-14-regular);
+    color: var(--grey-1)
+}
+
+
+@media screen and (max-width: 800px)  {
+    .container{
+        max-width: none;
+        width: 100%;
+    }
+  }

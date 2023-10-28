@@ -1,0 +1,42 @@
+.image {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    border-radius: 2px;
+    background-color: var(--grey-3);
+  }
+
+  .productInfo {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .productName {
+    font: var(--jost-13-regular);
+    color: var(--black-1);
+    text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .productDescription {
+    font: var(--jost-14-regular);
+    color: var(--grey-1);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .productPrice {
+    font: var(--jost-16-regular);
+    color: var(--black-1);
+    text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  

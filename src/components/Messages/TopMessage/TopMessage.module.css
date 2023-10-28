@@ -1,0 +1,27 @@
+.topMessage {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 51;
+  background: var(--black);
+  color: var(--grey-3);
+  font: var(--jost-13-regular);
+  display: flex;
+  justify-content: center; /* Выравнивание по горизонтали */
+  align-items: center;     /* Выравнивание по вертикали */
+  padding: 4px 40px 4px 20px;
+}
+
+.icon {
+  /* Ваши стили для иконки, если необходимо */
+  transition: all var(--transition-1);
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+  color: var(--grey-2); /* изначальный цвет */
+}
+
+.icon:hover {
+  color: var(--white); /* цвет при ховере */
+}

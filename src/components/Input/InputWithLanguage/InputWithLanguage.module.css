@@ -1,0 +1,17 @@
+.languageDropdown{
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font: var(--jost-13-regular);
+    color: var(--black-1);
+    width: fit-content;
+    padding: 0;
+}
+
+.languageDropdownOption{
+    padding: 4px 12px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+

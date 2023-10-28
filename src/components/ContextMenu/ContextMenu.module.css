@@ -1,0 +1,50 @@
+.userMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    right: 0;
+    background-color: var(--white);
+    border: 1px solid var(--grey-2);
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 30px;
+  }
+  
+  .menuItem {
+    text-transform: none;
+    display: flex;
+    align-items: center; /* Выравнивание пунктов меню по центру */
+    min-height: 24px;
+    width: max-content;
+  }
+
+  .menuItem:hover {
+    color:var(--black);
+  }
+
+  .icon {
+    width: 24px; /* Ширина иконок */
+    height: 24px; /* Высота иконок */
+    margin-right: 8px; /* Отступ между иконкой и текстом пункта меню */
+  }
+
+  .link, .button {
+    text-transform: none;
+    font-family: var(--jost-12-regular);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 0;
+    color: inherit;
+  }
+  
+  .link:hover, .button:hover {
+    text-decoration: none; /* Добавьте здесь другие стили по вашему выбору для выделения на наведении */
+  }
+
+  .divider {
+    height: 0.7px;
+    background-color: var(--grey-2); /* или другой цвет на ваш выбор */
+  }

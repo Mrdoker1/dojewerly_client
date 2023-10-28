@@ -1,0 +1,38 @@
+.multi-range-slider .bar-inner {
+    background-color: var(--grey-1);
+    border: none;
+    box-shadow: none;
+}
+
+.multi-range-slider {
+    border: none;
+    padding: none !important;
+    box-shadow: none;
+}
+
+.multi-range-slider .thumb {
+    border: solid 1px var(--grey-1);
+}
+
+.multi-range-slider .thumb::before {
+    border: inherit;
+}
+
+.multi-range-slider .thumb::before {
+    border: solid 1px var(--grey-1);
+	box-shadow: none;
+}
+
+.multi-range-slider .bar-left {
+    background-color: var(--grey-2);
+    box-shadow: none;
+}
+
+.multi-range-slider .bar-right {
+    background-color: var(--grey-2);
+    box-shadow: none;
+}
+
+.multi-range-slider .thumb:active .caption {
+    display: none;
+}

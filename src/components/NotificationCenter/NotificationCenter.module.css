@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  min-width: 200px;
+  gap: 10px;
+  padding: 8px;
+  margin: 8px;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-between;
+  align-items: stretch;
+}

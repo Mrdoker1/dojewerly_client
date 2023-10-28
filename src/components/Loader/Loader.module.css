@@ -1,0 +1,27 @@
+/* Loader.module.css */
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* Удалите height: 100vh; из этого класса, теперь он будет в .fullScreen */
+}
+
+.fullScreen {
+  height: 100vh; /* Занимает всю высоту видимой области просмотра только когда fullScreen=true */
+}
+  
+  .loader {
+    border: 3px solid var(--grey-3); /* Светлый серый */
+    border-top: 3px solid var(--grey-1); /* Синий */
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .text {
+    color: var(--grey-2);
+    font: var(--jost-13-regular);
+    text-align: center;
+  }
+  

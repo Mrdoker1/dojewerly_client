@@ -1,0 +1,10 @@
+.radioButtonGroupContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;  /* Расстояние между радиокнопками */
+  }
+  
+  .radioButtonGroupContainer.horizontal {
+    flex-direction: row;
+  }
+  

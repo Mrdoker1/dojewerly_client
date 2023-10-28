@@ -1,0 +1,24 @@
+.paginationContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.pageButton {
+    margin: 0 5px;
+    padding: 0px 16px;
+}
+
+.pageActive {
+}
+
+.firstPageButton{
+    display: block;
+}
+
+@media screen and (max-width: 480px) {
+    .firstPageButton {
+      display: none;
+    }
+  }

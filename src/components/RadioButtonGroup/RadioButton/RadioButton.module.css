@@ -1,0 +1,60 @@
+.radioButtonContainer {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    color: var(--grey-1);
+  }
+  
+  .labelText {
+    font: var(--jost-14-regular);
+    color: var(--black-1);
+  }
+  
+  .radioButtonInput {
+    display: none;
+  }
+  
+  .radioButtonCustom {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid var(--grey-1);
+    display: flex;
+    margin-right: 10px;
+    transition: var(--transition-1);
+  }
+  
+  .radioButtonCustom:hover {
+    border-color: var(--black-1);
+    box-shadow: 0 0 0 3px var(--grey-3, #d3d3d3);
+  }
+  
+  .radioButtonCustom:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
+  }
+  
+  .radioButtonCustom.checked {
+    border-color: var(--black-1);
+  }
+
+  /* Стиль для внутреннего круга */
+.radioButtonCustom::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--black-1);
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: inherit;
+  opacity: 0; /* Начальная невидимость */
+}
+
+/* Показываем внутренний круг, когда радиокнопка выбрана */
+.radioButtonCustom.checked::before {
+  opacity: 1;
+}

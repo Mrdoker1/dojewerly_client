@@ -1,0 +1,96 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font: var(--jost-15-regular);
+  transition: all var(--transition-1);
+  align-items: flex-start;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+label {
+  color: var(--grey-1);
+}
+
+.icon{
+  width: 24px;
+  height: 24px;
+  padding: 2px;
+  color: var(--grey-2);
+  cursor: pointer;
+}
+
+.icon:hover{
+  border-radius:8px;
+  transition: all var(--transition-1);
+  background-color: var(--grey-3);
+  color: var(--grey-1);
+}
+
+.inputStyle {
+  display: flex;
+  justify-content: flex-end;
+  height: 40px;
+  padding: 0px 4px 0px 12px;
+  align-items: center;
+  gap: 12px;
+  align-self: stretch;
+  border-radius: var(--input-radius);
+  position: relative;
+  border-bottom: 3px solid var(--grey-2);
+  border-left: 1px solid var(--grey-2);
+  border-right: 1px solid var(--grey-2);
+  border-top: 1px solid var(--grey-2);
+  transition: all var(--transition-1);
+}
+
+.inputStyle input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+/* При фокусе */
+.inputStyle.inputFocus {
+  border-bottom-color: black;
+}
+
+/* При наличии ошибки */
+.inputStyle.inputError {
+  border-bottom-color: red;
+}
+
+.inputStyle:hover {
+  border-color: var(--black-1);
+}
+
+.message {
+  /* стили для вашего сообщения */
+  color: var(--grey-1);
+  font: var(--jost-12-regular);
+}
+
+.errorText {
+  color: red;  /* сообщение будет красным, когда есть ошибка */
+}
+
+.disabled{
+  background-color: var(--grey-3);
+}
+
+.disabled:hover{
+  border-color: var(--grey-1);
+}
+
+  /* Медиа-запросы для различных размеров экрана */
+  @media screen and (max-width: 768px) {
+    /* Стили для хэдера при максимальной ширине 768px */
+    input{
+      font: var(--jost-21-regular);
+      font-size: 16px;
+    }
+  }

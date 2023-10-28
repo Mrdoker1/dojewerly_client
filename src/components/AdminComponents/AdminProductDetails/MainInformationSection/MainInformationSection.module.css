@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    align-items: flex-start; /* Выравнивание элементов по верхней части */
+  }
+  
+  .productImage {
+    width: 145px;
+    height: 145px;
+    margin-right: 20px; /* Отступ справа от изображения */
+    max-width: 160px;
+  }
+  
+  .infoContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: column; /* Вложенные поля ввода будут располагаться вертикально */
+    gap: 10px; /* Расстояние между полями ввода */
+  }
+
+  .namePriceContainer {
+    display: flex; /* Используем flexbox для выравнивания элементов по горизонтали */
+    justify-content: space-between; /* Распределяем элементы с равным промежутком между ними */
+    width: 100%; /* Занимаем всю доступную ширину */
+    gap: 10px;
+  }
+  

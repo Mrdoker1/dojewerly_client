@@ -1,0 +1,15 @@
+.container{
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+    padding-bottom: 40px;
+}
+
+@media screen and (max-width: 764px)  {
+
+    .container{
+      padding: 14px 14px 50px 14px;
+    }
+  }

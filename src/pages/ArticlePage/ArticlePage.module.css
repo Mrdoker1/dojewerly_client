@@ -1,0 +1,57 @@
+/* ArticlePage.module.css */
+.container {
+  display: flex;
+  max-width: 1170px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 40px 0;
+}
+
+.breadcrumbs {
+  padding-top: 40px;
+}
+
+.sidebar {
+  width: 400px; /* Можете настроить по своему усмотрению */
+  min-width: 300px;
+  padding-right: 20px; /* Отступ, чтобы сайдбар не прилипал к основному контенту */
+  /* Добавьте другие стили для сайдбара по вашему усмотрению, например, рамки, фон и т.д. */
+}
+
+.mainContent {
+  padding-left: 20px;
+  font: var(--jost-16-regular);
+  color: var(--black-1);
+  display: flex;
+  gap: 28px;
+  flex-direction: column;
+}
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column-reverse;
+    padding: 20px; /* Уменьшаем отступы для мобильных устройств */
+  }
+
+  .breadcrumbs{
+    padding: 14px;
+  }
+
+  .sidebar {
+    width: 100%; /* Сайдбар теперь занимает всю ширину */
+    padding-right: 0; /* Убираем отступ, так как сайдбар теперь на всю ширину */
+    margin-top: 20px; /* Добавляем немного пространства между сайдбаром и основным контентом */
+  }
+
+  .mainContent {
+    padding-left: 0; /* Убираем отступ, так как контент теперь на всю ширину */
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 14px; /* Делаем отступы еще меньше для очень маленьких экранов */
+  }
+  /* Другие специфические стили для очень маленьких экранов можно добавить здесь */
+}

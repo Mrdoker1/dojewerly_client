@@ -1,0 +1,52 @@
+/* Стили для футера */
+.footer {
+    padding: 30px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--grey-3);
+    gap: 30px;
+    z-index: 1;
+  }
+  
+  .footer ul {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    list-style-type: none;
+  }
+  
+  .footer li {
+    cursor: pointer;
+    transition: var(--transition-1);
+  }
+  
+  .footer li:hover {
+    fill: var(--grey-1);
+    color: var(--grey-1);
+  }
+  
+  .footerLinksMain {
+    color: var(--black-1);
+    font: var(--jost-13-regular);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  
+  .footerLinksAdditional {
+    color: var(--grey-1);
+    font: var(--jost-10-regular);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  
+  /* Медиа-запросы для различных размеров экрана */
+  @media screen and (max-width: 768px) {
+    /* Стили для футера при максимальной ширине 768px */
+    .footerLinksMain ul {
+      gap: 10px;
+      flex-direction: column;
+    }
+  }

@@ -1,0 +1,133 @@
+.productCard {
+    position: relative;
+    min-width: 140px;
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    cursor: pointer;
+    width: 100%; /* Занимает 100% ширины родительского элемента */
+    transition: all var(--transition-1);
+  }
+  
+  .productCard a {
+    gap: inherit;
+    display: inherit;
+    flex-direction: inherit;
+  }
+  
+  .productCard:hover{
+    /* transform: scale(1.01); */
+  }
+  
+  .infoContainer {  
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow: hidden;
+  }
+  
+  .image {
+    position: relative;  /* Добавляем это свойство */
+    background-color: var(--grey-3);
+    text-align: center;
+    width: 100%; 
+    height: auto;
+    object-fit: cover;
+    display: block;
+    transition: all var(--transition-1);
+    overflow: hidden;
+  }
+  
+  .image::before {
+    content: "";
+    position: absolute;  /* Абсолютное позиционирование относительно .image */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);  /* Изначальный фон */
+    transition: background var(--transition-1);
+    z-index: 1;  /* Между изображением и иконкой */
+  }
+  
+  .image:hover::before {
+    background: rgba(0, 0, 0, 0.4);  /* Фон при наведении */
+  }
+  
+  .image:hover{
+    /* border-radius: 200px 0 200px 200px; */
+    overflow: hidden  ;
+  }
+  
+  .image:hover .favouriteIcon {
+    opacity: 1;  /* Показать иконку при наведении на .image */
+  }
+  
+  .image img, .favouriteIcon {
+    z-index: 0;
+  }
+  
+  .image img {
+    object-fit: cover;
+    display: block;
+  }
+  
+  .name, .info, .price {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; /* Позволяет тексту переноситься на новую строку */
+    max-width: 100%;  /* Убедитесь, что он не выходит за пределы карточки */
+  }
+  
+  .name {
+    font: var(--jost-13-regular);
+    color: var(--black-1);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  .info {
+    font: var(--jost-14-regular);
+    color: var(--grey-1);
+  } 
+  
+  .price {
+    font: var(--jost-16-regular);
+    color: var(--black-1);
+    text-transform: uppercase;
+  }
+  
+  .favouriteIcon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  
+@media screen and (max-width: 764px)  {
+
+  .productCard{
+     min-width: none;
+     max-width: none;
+     width: 100%;
+     display: flex;
+     flex-direction: row;
+  }
+
+  .productCard a {
+    width: 100%;
+  }
+
+  .infoContainer {  
+    width: 100%;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  .image{
+    max-width: 100px;
+  }
+}
