@@ -10,6 +10,7 @@ import icons from '../../../assets/icons/icons';
 import { sendNotification } from '../../NotificationCenter/notificationHelpers';
 import { getUserProfile } from '../../../app/reducers/userSlice';
 import styles from './FavouriteToggle.module.css';
+import Loader from '../../Loader/Loader';
 
 interface FavouriteToggleProps {
   productId: string;
@@ -35,15 +36,13 @@ const FavouriteToggle: React.FC<FavouriteToggleProps> = ({ productId, className,
     event.stopPropagation();
     event.preventDefault();
 
+    setIsLoading(true);
+
     if (!token) {
       console.log('TOKEN');
       openModal('signup');
       return;
     }
-
-    if (isLoading) {
-      return;
-    } setIsLoading(true);
 
     if (token) {
       try {
@@ -73,6 +72,16 @@ const FavouriteToggle: React.FC<FavouriteToggleProps> = ({ productId, className,
 
     setIsLoading(false);
   };
+
+  if (isLoading) {
+    return (
+    <div 
+      className={`${styles.favouriteIcon} ${className} ${isFavourite ? styles.filled : ''}`} 
+    >
+      <Loader size={16}/>
+  </div>
+    )
+  } 
 
   return (
     <>
