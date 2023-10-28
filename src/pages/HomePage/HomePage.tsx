@@ -5,8 +5,6 @@ import FeaturedProductsSection from './FeaturedProductsSection/FeaturedProductsS
 import FeaturedCollectionsSection from './FeaturedCollectionsSection/FeaturedCollectionsSection';
 import InstaSection from './InstaSection/InstaSection';
 import CustomBanner from '../../components/Banner/BannerHelper';
-import { motion } from 'framer-motion';
-import { pageTransition } from '../../animation/pageTransition'
 
 const HomePage = memo(() => {
  
