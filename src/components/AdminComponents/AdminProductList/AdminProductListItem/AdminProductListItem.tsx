@@ -8,6 +8,7 @@
   import AdminProductListItemInfo from './AdminProductListItemInfo/AdminProductListItemInfo';
   import { sendNotification } from '../../../NotificationCenter/notificationHelpers';
 import { motion } from 'framer-motion';
+import Loader from '../../../Loader/Loader';
 
   interface AdminProductListItemProps {
     id: string;
@@ -32,6 +33,7 @@ import { motion } from 'framer-motion';
     };
 
     const selectedProductId = useSelector((state: RootState) => state.userDashboard.selectedProductId);
+    const status = useSelector((state: RootState) => state.products.status);
 
     const containerClassNames = selectedProductId === id
     ? `${styles.container} ${styles.selected}`
@@ -56,7 +58,7 @@ import { motion } from 'framer-motion';
           exit={{ opacity: 0, y: -50 }} // Анимация исчезновения (поднимается вверх)
         >
           <AdminProductListItemInfo imageUrl={imageUrl} name={name} description={description} price={price}/>
-          <TrashIcon onClick={handleDelete} className={styles.deleteIcon} />
+          {status === 'loading' ? <Loader size={16} className={styles.deleteIcon}/> : <TrashIcon onClick={handleDelete} className={styles.deleteIcon} />}
       </motion.div>
     );
   };

@@ -7,9 +7,10 @@ interface LoaderProps {
   fullScreen?: boolean;
   text?: string;
   size?: number;  // размер иконки загрузки
+  className?: string;
 }
 
-const Loader: React.FC<LoaderProps> = ({ fullScreen = false, text, size = 24 }) => {
+const Loader: React.FC<LoaderProps> = ({ fullScreen = false, text, size = 24, className }) => {
   const spinTransition = {
     loop: Infinity,
     ease: "linear",
@@ -24,7 +25,7 @@ const Loader: React.FC<LoaderProps> = ({ fullScreen = false, text, size = 24 }) 
   };
 
   return (
-    <div className={`${styles.loaderContainer} ${fullScreen ? styles.fullScreen : ''}`}>
+    <div className={`${styles.loaderContainer} ${fullScreen ? styles.fullScreen : ''} ${className}`}>
       <motion.span
         className={styles.loader}
         style={loaderStyle} // применяем стили

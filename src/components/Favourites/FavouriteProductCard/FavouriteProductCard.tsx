@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../../app/store';
 import { Product } from '../../../app/reducers/productsSlice';
 import { motion } from 'framer-motion';
+import Loader from '../../Loader/Loader';
 
 interface FavouriteProductCardProps {
   product: Product;
@@ -18,6 +19,7 @@ const FavouriteProductCard: React.FC<FavouriteProductCardProps> = ({ product, on
   const navigate = useNavigate();
   const currentCurrency = useSelector((state: RootState) => state.currency.currentCurrency);
   const currentLanguage = useSelector((state: RootState) => state.language.currentLanguage);
+  const status = useSelector((state: RootState) => state.favourites.status);
 
   const localizedProductName = getLocalizedField(product, 'name', currentLanguage);
   const localizedProductInfo = getLocalizedField(product, 'info', currentLanguage);
@@ -44,9 +46,10 @@ const FavouriteProductCard: React.FC<FavouriteProductCardProps> = ({ product, on
       <div className={styles.infoSection}>
         <div className={styles.titleAndIcon}>
           <h3 className={styles.productName}>{localizedProductName}</h3>
+          {status === 'loading' ? <Loader size={16} className={styles.heartIcon}/> : 
           <span className={styles.heartIcon} onClick={handleHeartClick}>
             <icons.heart />
-          </span>
+          </span>}
         </div>
         <p className={styles.productDescription}>{localizedProductInfo}</p>
         <p className={styles.productPrice}>{`${localizedProductPrice.toFixed(2)} ${currentCurrency}`}</p>

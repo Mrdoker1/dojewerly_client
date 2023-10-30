@@ -9,6 +9,7 @@ import icons from '../../../../assets/icons/icons';
 import { sendNotification } from '../../../NotificationCenter/notificationHelpers';
 import GradientImage from '../../../Image/GradientImage/GradientImage';
 import { motion } from 'framer-motion';
+import Loader from '../../../Loader/Loader';
 
 interface AdminCollectionListItemProps {
   collection: Collection;
@@ -18,6 +19,8 @@ const AdminCollectionListItem: React.FC<AdminCollectionListItemProps> = ({ colle
   const dispatch = useDispatch<AppDispatch>();
   const selectedCollectionId = useSelector((state: RootState) => state.userDashboard.selectedCollectionId);
   const allProducts = useSelector((state: RootState) => state.products.products);
+  const status = useSelector((state: RootState) => state.collections.status);
+
   const firstProductImage = React.useMemo(() => {
     const firstProductId = collection.productIds[0];
     const firstProduct = allProducts.find(product => product._id === firstProductId);
@@ -57,7 +60,7 @@ const AdminCollectionListItem: React.FC<AdminCollectionListItemProps> = ({ colle
       </div>
       <div className={styles.info}>
         <AdminCollectionListItemInfo collection={collection} />
-        <TrashIcon onClick={handleDelete} className={styles.deleteIcon} />
+        {status === 'loading' ? <Loader size={16} className={styles.deleteIcon}/> : <TrashIcon onClick={handleDelete} className={styles.deleteIcon} />}
       </div>
     </motion.div>
   );

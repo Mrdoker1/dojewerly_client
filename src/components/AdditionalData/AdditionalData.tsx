@@ -13,8 +13,8 @@ const AdditionalData = memo(() => {
           openModal('expiredSession')
         }
       }, [session]);
-      
 
+    
   return (
     <>
     </>

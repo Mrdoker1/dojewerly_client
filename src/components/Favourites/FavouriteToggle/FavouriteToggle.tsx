@@ -22,8 +22,8 @@ const FavouriteToggle: React.FC<FavouriteToggleProps> = ({ productId, className,
   const dispatch = useDispatch<AppDispatch>();
   const token = useSelector((state: RootState) => state.auth.token);
   const user = useSelector((state: RootState) => state.user.user);
+  const status = useSelector((state: RootState) => state.user.status);
   const [isFavourite, setIsFavourite] = useState(user?.favorites.includes(productId) || false);
-  const [isLoading, setIsLoading] = useState(false);
   const { openModal } = useCustomModal();
 
   useEffect(() => {
@@ -35,8 +35,6 @@ const FavouriteToggle: React.FC<FavouriteToggleProps> = ({ productId, className,
   const toggleFavourite = async (event: React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation();
     event.preventDefault();
-
-    setIsLoading(true);
 
     if (!token) {
       console.log('TOKEN');
@@ -69,11 +67,9 @@ const FavouriteToggle: React.FC<FavouriteToggleProps> = ({ productId, className,
         sendNotification(dispatch, 'error', 'Failed to add product to favourites.');
       }
     }
-
-    setIsLoading(false);
   };
 
-  if (isLoading) {
+  if (status === 'loading') {
     return (
     <div 
       className={`${styles.favouriteIcon} ${className} ${isFavourite ? styles.filled : ''}`} 
@@ -86,7 +82,7 @@ const FavouriteToggle: React.FC<FavouriteToggleProps> = ({ productId, className,
   return (
     <>
       <div 
-        className={`${styles.favouriteIcon} ${className} ${isFavourite ? styles.filled : ''} ${isLoading ? styles.loading : ''}`} 
+        className={`${styles.favouriteIcon} ${className} ${isFavourite ? styles.filled : ''}`} 
         onClick={toggleFavourite}
         style={{color: color}}
       >

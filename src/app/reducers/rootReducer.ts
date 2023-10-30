@@ -14,6 +14,7 @@ import currencyReducer from './currencySlice';
 import menuReducer from './menuSlice';
 import searchReducer from './searchSlice';
 import articlesReducer from './articlesSlice';
+import modalReducer from './modalSlice';
 
 const rootReducer = combineReducers({
   counter: counterReducer,
@@ -30,7 +31,8 @@ const rootReducer = combineReducers({
   currency: currencyReducer,
   menu: menuReducer,
   search: searchReducer,
-  articles: articlesReducer
+  articles: articlesReducer,
+  modal: modalReducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

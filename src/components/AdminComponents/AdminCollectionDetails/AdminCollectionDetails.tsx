@@ -13,6 +13,7 @@ import { motion } from 'framer-motion';
 
 const AdminCollectionDetails: React.FC = () => {
   const selectedCollectionId = useSelector((state: RootState) => state.userDashboard.selectedCollectionId);
+  const status = useSelector((state: RootState) => state.collections.status);
   const selectedCollection = useSelector((state: RootState) => 
     state.collections.collections.find(collection => collection._id === selectedCollectionId)
   );
@@ -71,6 +72,7 @@ const AdminCollectionDetails: React.FC = () => {
               type="submit"
               size="default"
               variant="secondary"
+              state={status === 'loading' ? 'loading' : 'default'}
               fullWidth={false}
             />
           </div>

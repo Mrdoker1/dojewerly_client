@@ -27,7 +27,6 @@ const SignInForm: React.FC<SignInFormProps> = memo(({ onSubmit }) => {
   const dispatch = useDispatch<AppDispatch>();
   const auth = useSelector((state: RootState) => state.auth);
   const status = useSelector((state: RootState) => state.auth.status);
-  const navigate = useNavigate();
   const { closeModal } = useModal();
   const { t } = useTranslation();
 

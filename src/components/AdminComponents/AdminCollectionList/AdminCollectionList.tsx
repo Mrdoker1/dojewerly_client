@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next';
 const AdminCollectionList: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const collectionList = useSelector((state: RootState) => state.collections.collections);
+  const status = useSelector((state: RootState) => state.collections.status);
   const { t } = useTranslation();
 
   const handleCreateNewCollection = () => {
@@ -26,6 +27,7 @@ const AdminCollectionList: React.FC = () => {
     dispatch(createCollection(newCollection))
     .then(response => {
       dispatch(fetchAllCollections());
+      console.log('response.payload', response);
       dispatch(selectCollection(response.payload._id));
     });
   };

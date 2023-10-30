@@ -12,6 +12,7 @@ import { motion } from 'framer-motion';
 
 const AdminProductDetails = () => {
   const selectedProductId = useSelector((state: RootState) => state.userDashboard.selectedProductId);
+  const status = useSelector((state: RootState) => state.products.status);
   const selectedProduct = useSelector((state: RootState) =>
     state.products.products.find(product => product._id === selectedProductId)
   );
@@ -71,6 +72,7 @@ const AdminProductDetails = () => {
           type="submit"
           size="default"
           variant="secondary"
+          state={status === 'loading' ? 'loading' : 'default'}
           fullWidth={false}
         />
       </form>
