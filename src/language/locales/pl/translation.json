@@ -93,5 +93,8 @@
     "VIEW ALL": "POKAŻ WSZYSTKO",
     "No products found": "Nie znaleziono produktów",
     "Loading": "Ładowanie",
-    "articles": "Artykuły"
+    "articles": "Artykuły",
+    "Invalid password!": "Nieprawidłowe hasło!",
+    "Your access expired!": "Twój dostęp wygasł!",
+    "Please sign in again.": "Proszę zaloguj się ponownie."
 }

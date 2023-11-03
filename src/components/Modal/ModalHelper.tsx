@@ -78,7 +78,7 @@ export function useCustomModal() {
           type: 'expiredSession',
           content: (
             <AuthComponent
-              heading={t('Your acess expired!')}
+              heading={t('Your access expired!')}
               description={t('Please sign in again.')}
               mainForm={<SignInForm />} 
               buttonIcon="arrowRight"

@@ -94,5 +94,7 @@
     "No products found": "Товары не найдены",
     "Loading": "Загрузка",
     "articles": "Статьи",
-    "Invalid password!": "Неправильный пароль!"
+    "Invalid password!": "Неправильный пароль!",
+    "Your access expired!": "Ваш доступ истек!",
+    "Please sign in again.": "Пожалуйста, войдите снова."
 }
