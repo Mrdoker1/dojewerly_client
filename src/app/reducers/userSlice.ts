@@ -57,7 +57,7 @@ export const getUserProfile = createAsyncThunk(
 
 export const updateUserProfile = createAsyncThunk(
   'user/updateUserProfile',
-  async ({ username,email, password, settings }: { username: string; email: string; password: string; settings?: { email: boolean } }, thunkAPI) => {
+  async ({ username, email, password, settings }: { username: string; email: string; password: string; settings?: { language: string, email: boolean } }, thunkAPI) => {
     const token = localStorage.getItem('token');
     if (!token) {
       throw new Error('No session');
@@ -93,7 +93,7 @@ export const updateUserProfile = createAsyncThunk(
 
 export const patchUserProfile = createAsyncThunk(
   'user/patchUserProfile',
-  async (update: { email?: string; username?: string; password?: string; settings?: { email: boolean } }, thunkAPI) => {
+  async (update: { email?: string; username?: string; password?: string; settings?: { language?: string, email?: boolean } }, thunkAPI) => {
     const token = localStorage.getItem('token');
     if (!token) {
       throw new Error('No session');

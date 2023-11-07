@@ -9,6 +9,7 @@
   cursor: pointer;
   width: 100%; /* Занимает 100% ширины родительского элемента */
   transition: all var(--transition-1);
+  user-select: none;
 }
 
 .productCard:active{
