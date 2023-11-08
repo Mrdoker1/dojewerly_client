@@ -30,6 +30,7 @@ import { ReactComponent as Copy } from './copy.svg'
 import { ReactComponent as Language } from './language.svg'
 import { ReactComponent as Burger } from './burger.svg'
 import { ReactComponent as Filter } from './filter.svg'
+import { ReactComponent as Info } from './info.svg'
 
 const icons = {
   arrowLeft: ArrowLeft,
@@ -64,6 +65,7 @@ const icons = {
   language: Language,
   burger: Burger,
   filter: Filter,
+  info: Info,
   // Добавьте сюда больше иконок при необходимости
 };
 

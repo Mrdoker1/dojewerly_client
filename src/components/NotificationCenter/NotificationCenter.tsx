@@ -23,6 +23,7 @@ const NotificationCenter: React.FC = () => {
             key={notification.id}
             type={notification.type}
             message={notification.message}
+            iconLeft={notification.iconLeft} // Иконка будет использована, если она определена
             iconRight={notification.iconRight} // Иконка будет использована, если она определена
             iconRightClick={() => handleClose(notification.id)}
             timeout={notification.timeout}

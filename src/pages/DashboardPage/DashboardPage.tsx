@@ -35,6 +35,7 @@ const DashboardPage = () => {
       tabs.push(
         { title: t('PRODUCTS'), route: '/dashboard/products' },
         { title: t('COLLECTIONS'), route: '/dashboard/collections' },
+        { title: t('EMAILS'), route: '/dashboard/emails' }
       );
     }
   }

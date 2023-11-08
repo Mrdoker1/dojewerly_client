@@ -7,7 +7,7 @@ import { removeNotification } from '../../../app/reducers/notificationSlice';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../../app/store';
 
-export interface NotificationMessageProps {
+export interface Notification {
   /** ID сообщения */
   id?: number;
   /** Тип сообщения: успех или ошибка */
@@ -16,6 +16,8 @@ export interface NotificationMessageProps {
   message?: string | null;
   /** Иконка, отображаемая справа от сообщения */
   iconRight?: keyof typeof icons;
+  /** Иконка, отображаемая слева от сообщения */
+  iconLeft?: keyof typeof icons;
   /** Вызывается при клике на иконку справа */
   iconRightClick?: () => void;
   /** Время в миллисекундах, после которого сообщение исчезнет */
@@ -26,11 +28,12 @@ export interface NotificationMessageProps {
   visible?: boolean
 }
 
-const NotificationMessage: React.FC<NotificationMessageProps> = ({
-  id, type, message, iconRight, iconRightClick, timeout, absolute, visible = true 
+const NotificationMessage: React.FC<Notification> = ({
+  id, type, message, iconLeft, iconRight, iconRightClick, timeout, absolute, visible = true 
 }) => {
   const [isVisible, setIsVisible] = useState(visible);
   const IconRight = iconRight ? icons[iconRight] : null;
+  const IconLeft = iconLeft ? icons[iconLeft] : null;
   const dispatch = useDispatch<AppDispatch>();
   const containerStyle = absolute ? styles.absoluteContainer : '';
   let messageStyle = '';
@@ -99,8 +102,9 @@ const NotificationMessage: React.FC<NotificationMessageProps> = ({
       animate={{ opacity: 1, y: 0 }} // Анимация появления (опускается вниз)
       exit={{ opacity: 0, y: -50 }} // Анимация исчезновения (поднимается вверх)
     >
+      {IconLeft && <IconLeft onClick={handleClose} className={styles.iconLeft} />}
       {message}
-      {IconRight && <IconRight onClick={handleClose} className={styles.icon} />}
+      {IconRight && <IconRight onClick={handleClose} className={styles.iconRight} />}
       {timeout && (
         <div 
           className={styles.timeoutBar} 

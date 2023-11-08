@@ -25,6 +25,7 @@ import ArticlePage from '../../pages/ArticlePage/ArticlePage';
 import Loader from '../Loader/Loader';
 import { useTranslation } from 'react-i18next';
 import ArticlesPage from '../../pages/ArticlesPage/ArticlesPage';
+import EmailCreationPage from '../../pages/EmailCreationPage/EmailCreationPage';
 
 const AppRouter = memo(() => {
   const auth = useSelector((state: RootState) => state.auth);
@@ -61,6 +62,9 @@ const AppRouter = memo(() => {
             </Route>
             <Route path="collections" element={<AdminProtectedRoute />}>
               <Route index element={<CollectionCreationPage />} />
+            </Route>
+            <Route path="emails" element={<AdminProtectedRoute />}>
+              <Route index element={<EmailCreationPage />} />
             </Route>
           </Route>
           <Route path="/product/:id" element={<ProductPage />} />

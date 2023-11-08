@@ -2,8 +2,6 @@ import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { Product } from './productsSlice';
 import { customFetch } from '../../service/apiService';
 
-const apiUrl = process.env.REACT_APP_API_URL;
-
 // Async action to get all favorite products
 export const fetchAllFavourites = createAsyncThunk(
   'favourites/fetchAll',

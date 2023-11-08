@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './CollectionListItem.module.css';
-import AdminCollectionListItemInfo from '../../../components/AdminComponents/AdminCollectionList/AdminCollectionListItem/AdminCollectionListItemInfo/AdminCollectionListItemInfo';
+import AdminCollectionListItemInfo from '../../../components/AdminComponents/AdminCollection/AdminCollectionList/AdminCollectionListItem/AdminCollectionListItemInfo/AdminCollectionListItemInfo';
 import { useNavigate } from 'react-router-dom';
 import { Collection } from '../../../app/reducers/collectionsSlice';
 import { getLocalizedCollectionField } from '../../../utils/getLocalizedCollectionField';

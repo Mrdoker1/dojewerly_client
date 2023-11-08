@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  cursor: pointer;
+  padding: 8px;
+  position: relative;
+  transition: all var(--transition-1);
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  overflow: hidden; 
+  max-width: 640px;
+  min-width: 520px;
+}
+
+.container:hover {
+  border: 1px solid #ccc;
+  background-color: var(--grey-3);
+}
+
+.info {
+  z-index: 2;
+}

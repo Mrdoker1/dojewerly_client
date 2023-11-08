@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ProductCreationPage.module.css';
-import AdminProductList from '../../components/AdminComponents/AdminProductList/AdminProductList';
-import AdminProductDetails from '../../components/AdminComponents/AdminProductDetails/AdminProductDetails';
+import AdminProductList from '../../components/AdminComponents/AdminProduct/AdminProductList/AdminProductList';
+import AdminProductDetails from '../../components/AdminComponents/AdminProduct/AdminProductDetails/AdminProductDetails';
 import { motion } from 'framer-motion';
 
 const ProductCreationPage: React.FC = () => {
