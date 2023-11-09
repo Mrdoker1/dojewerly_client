@@ -60,11 +60,9 @@ const EmailForm = () => {
             localization
           };
           dispatch(sendEmailWithProductInfo(emailData)).then((result) => {
-            console.log(status)
-            console.log(result)
-            if (status === 'succeeded') {
+            if (result.meta.requestStatus === 'fulfilled') {
               sendNotification(dispatch, 'success', 'Product emails sended!');
-            } else {
+            } else if (result.meta.requestStatus === 'rejected'){
               sendNotification(dispatch, 'error', 'Failed to send product emails.');
             }
           });
@@ -76,11 +74,11 @@ const EmailForm = () => {
             collectionIds,
             localization
           };
-          dispatch(sendEmailWithCollectionInfo(emailData)).then(() => {
-            if (status === 'succeeded') {
-              sendNotification(dispatch, 'success', 'Collections emails sended!');
-            } else {
-              sendNotification(dispatch, 'error', 'Failed to send collections emails.');
+          dispatch(sendEmailWithCollectionInfo(emailData)).then((result) => {
+            if (result.meta.requestStatus === 'fulfilled') {
+              sendNotification(dispatch, 'success', 'Product emails sended!');
+            } else if (result.meta.requestStatus === 'rejected'){
+              sendNotification(dispatch, 'error', 'Failed to send product emails.');
             }
           });
           break;
