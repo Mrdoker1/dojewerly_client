@@ -75,7 +75,7 @@ const SignUpForm = memo(() => {
             }}
           />
           <Input 
-            type="text"
+            type="email"
             label={t('Email Address')}
             value={email}
             placeholder={t('your@email.com')}

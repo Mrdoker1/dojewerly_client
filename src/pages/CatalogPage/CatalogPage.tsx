@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import Filters from '../../components/Catalog/Filters/Filters';
 import ProductList from '../../components/Catalog/ProductList/ProductList';
@@ -6,7 +6,7 @@ import styles from './CatalogPage.module.css';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 
-const CatalogPage = memo(() => {
+const CatalogPage = () => {
   const { t } = useTranslation();
   
   return (
@@ -24,6 +24,6 @@ const CatalogPage = memo(() => {
         <ProductList />
       </motion.div>
   );
-});
+};
 
-export default CatalogPage;
+export default React.memo(CatalogPage);

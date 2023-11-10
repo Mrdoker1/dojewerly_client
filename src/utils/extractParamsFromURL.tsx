@@ -1,5 +1,7 @@
+import { ProductQueryParams } from "../app/reducers/catalogSlice";
+
 export default function extractParamsFromURL(url: string) {
-    const params: { [key: string]: string | number } = {};
+    const params: ProductQueryParams = {};
     const searchParams = new URLSearchParams(url.split('?')[1]);
   
     searchParams.forEach((value, key) => {

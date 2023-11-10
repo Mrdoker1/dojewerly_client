@@ -364,6 +364,7 @@ export const productsSlice = createSlice({
         state.products = state.products.filter((prod) => prod._id !== action.payload);
       })
       .addCase(fetchAllProducts.pending, (state) => {
+        // state.products = [];
         state.status = 'loading';
       })
       .addCase(fetchAllProducts.fulfilled, (state, action: PayloadAction<Product[]>) => {
