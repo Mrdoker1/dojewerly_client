@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../../app/store';
 import { useNavigate } from 'react-router-dom';
 import { setSearchOpen } from '../../../app/reducers/searchSlice';
-import Loader from '../../Loader/Loader';
 import extractParamsFromURL from '../../../utils/extractParamsFromURL';
 import { setAllFilters } from '../../../app/reducers/catalogSlice';
 
@@ -20,7 +19,6 @@ const SearchResults: FC<SearchResultsProps> = ({ products, total }) => {
 
   const dispatch = useDispatch<AppDispatch>();
   const { t } = useTranslation();
-  const status = useSelector((state: RootState) => state.search.status);
   const searchQuery = useSelector((state: RootState) => state.search.searchQuery);
   const navigate = useNavigate();
 

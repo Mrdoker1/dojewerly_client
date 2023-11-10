@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { batch, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchTotalProductsCount } from '../../../app/reducers/productsSlice';
 import { AppDispatch, RootState } from '../../../app/store';
 import ProductCard from '../ProductCard/ProductCard';
 import styles from './ProductList.module.css'
 import Pagination from '../Pagination/Pagination';
-import { getAllProducts, setAllFilters, setFilter, setTotalProducts } from '../../../app/reducers/catalogSlice';
+import { getAllProducts, setFilter, setTotalProducts } from '../../../app/reducers/catalogSlice';
 import ProductCardSkeleton from '../ProductCard/ProductCardSkeleton';
 import { useTranslation } from 'react-i18next';
 

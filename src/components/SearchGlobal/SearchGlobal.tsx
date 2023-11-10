@@ -1,8 +1,8 @@
-import React, { FC, useState, useCallback, useEffect } from 'react';
+import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './SearchGlobal.module.css';
-import { clearSearch, fetchSearchedProducts, fetchSearchedProductsCount, resetSearch, setSearchOpen, setSearchQuery } from '../../app/reducers/searchSlice';
+import { clearSearch, fetchSearchedProducts, fetchSearchedProductsCount, setSearchQuery } from '../../app/reducers/searchSlice';
 import { AppDispatch } from '../../app/store';
 import SearchResults from './SearchResults/SearchResults';
 import { motion } from 'framer-motion';
