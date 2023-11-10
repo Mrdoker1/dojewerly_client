@@ -13,8 +13,8 @@ const HomePage = memo(() => {
       <HeroSection></HeroSection>
       <FeaturedProductsSection></FeaturedProductsSection>
       <FeaturedCollectionsSection></FeaturedCollectionsSection>
-      <CustomBanner type={'left'} ></CustomBanner>
-      <CustomBanner type={'right'}></CustomBanner>
+      <CustomBanner type={'HorizontalLeft'} ></CustomBanner>
+      <CustomBanner type={'HorizontalRight'}></CustomBanner>
       <InstaSection></InstaSection>
       {/* Здесь будут другие секции */}
     </main>

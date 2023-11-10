@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './Banner.module.css';
-import Button from '../Button/Button';
+import styles from './HorizontalBanner.module.css';
+import Button from '../../Button/Button';
 
-interface BannerProps {
+interface HorizontalBannerProps {
   /** Выбор текста слева или справа */
   type: 'left' | 'right';
   /** Изображение */
@@ -23,7 +23,7 @@ interface BannerProps {
   onClick?: () => void;
 }
 
-const Banner: React.FC<BannerProps> = ({ type, image, backgroundImage, color, subHeader, text, title, buttonText, onClick }) => {
+const HorizontalBanner: React.FC<HorizontalBannerProps> = ({ type, image, backgroundImage, color, subHeader, text, title, buttonText, onClick }) => {
 
   const button = color === 'light' ? <Button className={styles.whiteButton} customColor='white' variant='secondary'>{buttonText}</Button> : <Button className={styles.darkButton} variant='secondary'>{buttonText}</Button>
 
@@ -51,4 +51,4 @@ const Banner: React.FC<BannerProps> = ({ type, image, backgroundImage, color, su
   );
 };
 
-export default Banner;
+export default HorizontalBanner;

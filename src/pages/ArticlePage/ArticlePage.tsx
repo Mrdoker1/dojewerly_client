@@ -8,6 +8,7 @@ import ReactMarkdown from 'react-markdown';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import Loader from '../../components/Loader/Loader';
 import { useTranslation } from 'react-i18next';
+import CustomBanner from '../../components/Banner/BannerHelper';
 
 const ArticlePage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -55,8 +56,7 @@ const ArticlePage: React.FC = () => {
     </div>
     <div className={styles.container}>
       <aside className={styles.sidebar}>
-        {/* Содержимое для сайдбара (например, реклама) */}
-        <p>Рекламный или другой блок</p>
+        <CustomBanner type={'Vertical'} ></CustomBanner>
       </aside>
       <main className={styles.mainContent}>
         {article && (

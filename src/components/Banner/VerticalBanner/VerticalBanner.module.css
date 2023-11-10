@@ -1,0 +1,64 @@
+.container {
+    max-width: 260px; /* или другая ширина по вашему выбору */
+    max-height: 380px;
+    height: 100%;
+    margin: 12px auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: all var(--transition-1);
+  }
+
+  .container:hover{
+    transition: all var(--transition-1);
+    scale: 1.01;
+  }
+  
+  .content {
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .light {
+    color: var(--white);
+  }
+  
+  .dark {
+    color: var(--black-1);
+  }
+
+  .whiteButton{
+    color: white;
+    border: 1px solid white;
+    box-sizing:border-box;
+  }
+  
+  .darkButton {
+    border: 1px solid var(--black-1);
+  }
+  
+  .bannerSubheading {
+    font-size: 1em; /* подстроить размер и шрифт под ваш дизайн */
+  }
+  
+  .bannerDescription {
+    font: var(--jost-15-regular);
+  }
+  
+  
+  @media screen and (max-width: 780px) {
+    .container {
+      max-width: 100%;
+    }
+  
+    /* Другие медиа-запросы для адаптивности */
+  }
+  
