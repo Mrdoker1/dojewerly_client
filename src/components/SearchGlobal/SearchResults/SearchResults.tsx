@@ -5,10 +5,11 @@ import SearchProductCard from './SearchProductCard/SearchProductCard';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../../app/store';
-import ProductCardSkeleton from '../../Catalog/ProductCard/ProductCardSkeleton';
 import { useNavigate } from 'react-router-dom';
 import { setSearchOpen } from '../../../app/reducers/searchSlice';
 import Loader from '../../Loader/Loader';
+import extractParamsFromURL from '../../../utils/extractParamsFromURL';
+import { setAllFilters } from '../../../app/reducers/catalogSlice';
 
 interface SearchResultsProps {
   products: Product[];
@@ -20,12 +21,13 @@ const SearchResults: FC<SearchResultsProps> = ({ products, total }) => {
   const dispatch = useDispatch<AppDispatch>();
   const { t } = useTranslation();
   const status = useSelector((state: RootState) => state.search.status);
-  const totalProducts = useSelector((state: RootState) => state.search.total);
   const searchQuery = useSelector((state: RootState) => state.search.searchQuery);
   const navigate = useNavigate();
 
   const handleViewAll = (event: React.MouseEvent<HTMLInputElement>) => {
     const path = `/catalog?page=1&q=${searchQuery}`;
+    const params = extractParamsFromURL(path);
+    dispatch(setAllFilters(params));
     navigate(path);
     dispatch(setSearchOpen(false));
   };
@@ -56,7 +58,7 @@ const SearchResults: FC<SearchResultsProps> = ({ products, total }) => {
         <div>{`${t('RESULTS')} ${total}`}</div>
         <div onClick={handleViewAll} className={styles.viewAllButton}>{t('VIEW ALL')}</div>
       </div>
-      {(totalProducts > 0) ? (
+      {(total > 0) ? (
         <div className={styles.productList}>
             {products.slice(0, 4).map((product, index) => (
                 <SearchProductCard key={index} product={product} />
