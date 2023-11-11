@@ -59,7 +59,7 @@ html {
     --cormorant-24-medium: normal 500 24px/32px 'Cormorant';
     --cormorant-29-medium: normal 500 29px/37px 'Cormorant';
     --cormorant-52-medium: normal 500 52px/63px 'Cormorant';
-    --cormorant-90-medium: normal 500 90px/72px 'Cormorant';
+    --cormorant-82-medium: normal 500 82px/72px 'Cormorant';
 
     /* Jost */
     --jost-10-medium: normal 300 10px/19px 'Jost';
@@ -74,7 +74,7 @@ html {
     --jost-16-medium: normal 500 16px/24px 'Jost';
     --jost-21-regular: normal 400 21px/24px 'Jost';
     --jost-21-medium: normal 500 21px/24px 'Jost';
-    --jost-44-regular: normal 300 44px/14px 'Jost';
+    --jost-40-regular: normal 300 40px/14px 'Jost';
 
     --input-radius: 4px;
   }

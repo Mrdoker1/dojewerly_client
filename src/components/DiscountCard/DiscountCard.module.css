@@ -59,13 +59,13 @@
   }
   
   .discountValue {
-    font: var(--cormorant-90-medium); /* Используйте свои переменные для шрифтов */
+    font: var(--cormorant-82-medium); /* Используйте свои переменные для шрифтов */
     color: var(--yellow-1); /* Используйте свою переменную для акцентного цвета */
     letter-spacing: -2px;
   }
   
   .discountLabel {
-    font: var(--jost-44-regular);
+    font: var(--jost-40-regular);
     text-transform: uppercase;
     letter-spacing: -2px;
     padding-left: 40px;
