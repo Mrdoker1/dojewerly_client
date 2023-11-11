@@ -34,7 +34,6 @@ const Filters = () => {
     });
 
     useEffect(() => {
-        console.log(stickyTopValue);
         if (!criteria) {
             dispatch(fetchCatalogCriteria());
         }

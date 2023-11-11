@@ -6,14 +6,15 @@ import { AppDispatch, RootState } from '../../../app/store';
 import ProductCard from '../ProductCard/ProductCard';
 import styles from './ProductList.module.css'
 import Pagination from '../Pagination/Pagination';
-import { getAllProducts, setFilter, setTotalProducts } from '../../../app/reducers/catalogSlice';
+import { getAllProducts, setAllFilters, setFilter, setTotalProducts } from '../../../app/reducers/catalogSlice';
 import ProductCardSkeleton from '../ProductCard/ProductCardSkeleton';
 import { useTranslation } from 'react-i18next';
+import extractParamsFromURL from '../../../utils/extractParamsFromURL';
 
 const ProductList: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const products = useSelector((state: RootState) => state.catalog.products);
-  const productListStatus = useSelector((state: RootState) => state.catalog.status);
+  const status = useSelector((state: RootState) => state.catalog.status);
   const filters = useSelector((state: RootState) => state.catalog.params);
   const navigate = useNavigate();
   const location = useLocation();
@@ -22,20 +23,26 @@ const ProductList: React.FC = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    dispatch(getAllProducts(filters))
-    dispatch(fetchTotalProductsCount(filters));
-    dispatch(setTotalProducts(totalProducts));
-  }, [dispatch, filters, totalProducts]);
+    console.log("Location changed:", location.pathname);
+    // Остальной код
+  }, [location.pathname]);
+  
+  useEffect(() => {
+    if (filters) {
+      dispatch(getAllProducts(filters));
+      dispatch(fetchTotalProductsCount(filters));
+      dispatch(setTotalProducts(totalProducts));
+    }
+  }, [filters, dispatch, totalProducts]);
 
   const handlePageChange = (page: number) => {
     //window.scrollTo(0, 0); // сброс позиции скролла к верху страницы
-    dispatch(setFilter({ name: 'page', value: page }));
     const newSearchParams = new URLSearchParams(location.search);
     newSearchParams.set('page', page.toString());
     navigate(`${location.pathname}?${newSearchParams.toString()}`, { replace: true });
   };  
 
-  if (productListStatus === 'loading') {
+  if (status === 'loading') {
     return (
       <div className={styles.container}>
         <div className={styles.productList}>
@@ -47,7 +54,7 @@ const ProductList: React.FC = () => {
     );
   } 
 
-  if (productListStatus === 'failed') {
+  if (status === 'failed') {
     return (
       <div className={styles.container}>
         <div className={styles.errorIndicator}>Ошибка загрузки продуктов</div>
@@ -77,8 +84,6 @@ const ProductList: React.FC = () => {
         </div>
       </div>
       <Pagination 
-        currentPage={Number(filters.page) || 1} 
-        totalPages={Number(totalPages) || 1}
         onPageChange={handlePageChange}
       />
     </>

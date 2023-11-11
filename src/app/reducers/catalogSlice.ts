@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { customFetch } from '../../service/apiService';
 import { Product } from './productsSlice';
+import extractParamsFromURL from '../../utils/extractParamsFromURL';
 
 export interface CatalogState {
   products?: Product[];
@@ -106,6 +107,9 @@ export const catalogSlice = createSlice({
       const search = action.payload;
       const searchParams = new URLSearchParams(search);
       console.log("Updating from URL:", search);
+
+      const params = extractParamsFromURL(search);
+      state.params = { ...state.params, ...params };
 
       searchParams.forEach((value, key) => {
         console.log("Processing key:", key, "with value:", value);

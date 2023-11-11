@@ -37,8 +37,6 @@ const Header: React.FC = () => {
   const { openModal } = useCustomModal();
 
   const handleNavigation = (path: string) => {
-    const params = extractParamsFromURL(path);
-    dispatch(setAllFilters(params));
     navigate(path);
   };
   
