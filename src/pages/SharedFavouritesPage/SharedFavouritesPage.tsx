@@ -48,14 +48,16 @@ const SharedFavouritesPage: React.FC = () => {
           <span className={styles.username}>{userName}</span> <span>{t('has shared their favorites with you!')}</span>
         </div>
     </div>
-    <div className={styles.productWrapper}>
-      {favouriteProducts.map(product => (
-          <ProductCard
-            key={product._id}
-            product={product}
-          />
-        ))}
-    </div>
+      {(favouriteProducts.length <= 0) ? <div className={styles.heading}>No products found.</div> : 
+      <div className={styles.productWrapper}>
+        {favouriteProducts.map(product => (
+            <ProductCard
+              key={product._id}
+              product={product}
+            />
+          ))}
+      </div>
+      }
   </div>
   );  
 };

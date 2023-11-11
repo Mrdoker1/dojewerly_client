@@ -22,8 +22,8 @@ const FavouriteToggle: React.FC<FavouriteToggleProps> = ({ productId, className,
   const dispatch = useDispatch<AppDispatch>();
   const token = useSelector((state: RootState) => state.auth.token);
   const user = useSelector((state: RootState) => state.user.user);
-  const status = useSelector((state: RootState) => state.user.status);
   const [isFavourite, setIsFavourite] = useState(user?.favorites.includes(productId) || false);
+  const [isLoading, setIsLoading] = useState(false); // Добавлено: локальное состояние для индикации загрузки
   const { openModal } = useCustomModal();
 
   useEffect(() => {
@@ -37,16 +37,16 @@ const FavouriteToggle: React.FC<FavouriteToggleProps> = ({ productId, className,
     event.preventDefault();
 
     if (!token) {
-      console.log('TOKEN');
       openModal('signup');
       return;
     }
 
+    setIsLoading(true);
     if (token) {
       try {
         await dispatch(getUserProfile()).unwrap();
       } catch (error) {
-
+        // Обработка ошибок (если нужно)
       }
     }
 
@@ -57,6 +57,8 @@ const FavouriteToggle: React.FC<FavouriteToggleProps> = ({ productId, className,
         setIsFavourite(false);
       } catch (error) {
         sendNotification(dispatch, 'error', 'Failed to remove product from favourites.');
+      } finally {
+        setIsLoading(false); // Добавлено: сброс состояния загрузки после завершения операции
       }
     } else {
       try {
@@ -65,18 +67,18 @@ const FavouriteToggle: React.FC<FavouriteToggleProps> = ({ productId, className,
         setIsFavourite(true);
       } catch (error) {
         sendNotification(dispatch, 'error', 'Failed to add product to favourites.');
+      } finally {
+        setIsLoading(false); // Добавлено: сброс состояния загрузки после завершения операции
       }
     }
   };
 
-  if (status === 'loading') {
+  if (isLoading) {
     return (
-    <div 
-      className={`${styles.favouriteIcon} ${className} ${isFavourite ? styles.filled : ''}`} 
-    >
-      <Loader size={16}/>
-  </div>
-    )
+      <div className={`${styles.favouriteIcon} ${className} ${isFavourite ? styles.filled : ''}`} >
+        <Loader size={16}/>
+      </div>
+    );
   } 
 
   return (
