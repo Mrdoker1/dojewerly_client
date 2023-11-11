@@ -6,7 +6,7 @@ import { AppDispatch, RootState } from '../../../app/store';
 import ProductCard from '../ProductCard/ProductCard';
 import styles from './ProductList.module.css'
 import Pagination from '../Pagination/Pagination';
-import { getAllProducts, setAllFilters, setFilter, setTotalProducts } from '../../../app/reducers/catalogSlice';
+import { getAllProducts, getTotalProductsCount, setAllFilters, setFilter, setTotalProducts } from '../../../app/reducers/catalogSlice';
 import ProductCardSkeleton from '../ProductCard/ProductCardSkeleton';
 import { useTranslation } from 'react-i18next';
 import extractParamsFromURL from '../../../utils/extractParamsFromURL';
@@ -30,10 +30,9 @@ const ProductList: React.FC = () => {
   useEffect(() => {
     if (filters) {
       dispatch(getAllProducts(filters));
-      dispatch(fetchTotalProductsCount(filters));
-      dispatch(setTotalProducts(totalProducts));
+      dispatch(getTotalProductsCount(filters));
     }
-  }, [filters, dispatch, totalProducts]);
+  }, [filters, dispatch]);
 
   const handlePageChange = (page: number) => {
     //window.scrollTo(0, 0); // сброс позиции скролла к верху страницы

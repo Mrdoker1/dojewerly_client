@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllCollections } from '../../app/reducers/collectionsSlice';
 import { AppDispatch, RootState } from '../../app/store';
 import styles from './CollectionsPage.module.css';
-import CollectionListItem, { CollectionListItemProps } from './CollectionListItem/CollectionListItem';
+import CollectionListItem, { CollectionListItemProps } from '../../components/Collection/CollectionListItem/CollectionListItem';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
@@ -45,8 +45,8 @@ const CollectionsPage: React.FC = () => {
 
       {status === 'succeeded' && 
         <div className={styles.collections}>
-          {collections.map((collection) => (
-            collection ? <CollectionListItem key={collection._id} collection={collection as CollectionListItemProps["collection"]} /> : null
+          {collections.map((collection, index) => (
+            collection ? <CollectionListItem key={index} collection={collection as CollectionListItemProps["collection"]} /> : null
           ))}
         </div>
       }

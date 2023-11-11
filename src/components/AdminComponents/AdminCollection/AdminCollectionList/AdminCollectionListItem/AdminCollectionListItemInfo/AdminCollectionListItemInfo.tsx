@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ProductImage from '../../../../../Image/ProductImage/ProductImage';
 import { Collection } from '../../../../../../app/reducers/collectionsSlice';
-import { fetchAllProducts, Product } from '../../../../../../app/reducers/productsSlice'; // Импортируйте ваш редьюсер продуктов
+import { fetchProductById, Product } from '../../../../../../app/reducers/productsSlice'; // Импортируйте ваш редьюсер продуктов
 import styles from './AdminCollectionListItemInfo.module.css';
 import { AppDispatch } from '../../../../../../app/store';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -18,10 +18,10 @@ const AdminCollectionListItemInfo: React.FC<AdminCollectionListItemInfoProps> = 
   const products = useSelector((state: any) => state.products.products); // Укажите правильный тип состояния
 
   useEffect(() => {
-    if (!products.length) {
-      dispatch(fetchAllProducts({})); // Загружаем все продукты
-    }
-  }, [dispatch, products]);
+    collection.productIds.forEach((id) => {
+      dispatch(fetchProductById(id)); 
+    })
+  }, [collection.productIds, dispatch]);
 
   // Находим продукты коллекции по их ID
   const collectionProducts: Product[] = products.filter((product: Product) => collection.productIds.includes(product._id || ''));
@@ -29,15 +29,15 @@ const AdminCollectionListItemInfo: React.FC<AdminCollectionListItemInfoProps> = 
   const ProductsList = (
     <AnimatePresence>
       <div className={styles.productImagesContainer}>
-        {collectionProducts.slice(0, productsToShow).map((product) => (
+        {collectionProducts.slice(0, productsToShow).map((product, index) => (
           <motion.div
               initial={{ opacity: 0, y: 50 }} // Начальное состояние (невидимо и наверху)
               animate={{ opacity: 1, y: 0 }} // Анимация появления (опускается вниз)
               exit={{ opacity: 0, y: 50 }} // Анимация исчезновения (поднимается вверх)
-              key={product._id}
+              key={index}
             >
             <ProductImage
-              key={product._id || ''}
+              key={index}
               imageUrl={product.imageURLs[0]} // Берем первое изображение
               alt={product.name}
               className={styles.productImage}
