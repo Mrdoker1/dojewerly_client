@@ -1,5 +1,7 @@
 .container{
-    width: inherit;
+    width: -webkit-fill-available;
+    width: -moz-available; /* Для Firefox */
+    width: stretch; /* Для других современных браузеров */
     display: flex;
     flex-direction: column;
     gap: 20px;
