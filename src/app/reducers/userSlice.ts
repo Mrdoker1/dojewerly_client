@@ -1,17 +1,21 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { customFetch } from '../../service/apiService';
 
+export enum UserRole {
+  ADMIN = 'admin',
+  USER = 'user',
+}
+
 export interface User {
   _id: string;
-  username: string;
   email: string;
+  username: string;
   password: string;
-  __v: number;
-  role: string;
+  role: UserRole;
+  isActivated: boolean;
+  discount: number;
   favorites: string[];
-  settings: {
-    email: boolean;
-  }
+  settings: { email: boolean; language: string };
 }
 
 interface UserState {

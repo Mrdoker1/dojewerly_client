@@ -32,6 +32,7 @@ html {
     --white: #ffffff;
     --google: #4688F1;
     --facebook: #3C5B96;
+    --yellow-1: #E3D28A;
     
     /* Effects */
     --transition-1: .1s linear;
@@ -58,7 +59,8 @@ html {
     --cormorant-24-medium: normal 500 24px/32px 'Cormorant';
     --cormorant-29-medium: normal 500 29px/37px 'Cormorant';
     --cormorant-52-medium: normal 500 52px/63px 'Cormorant';
-    
+    --cormorant-90-medium: normal 500 90px/72px 'Cormorant';
+
     /* Jost */
     --jost-10-medium: normal 300 10px/19px 'Jost';
     --jost-10-regular: normal 400 10px/25px 'Jost';
@@ -72,6 +74,7 @@ html {
     --jost-16-medium: normal 500 16px/24px 'Jost';
     --jost-21-regular: normal 400 21px/24px 'Jost';
     --jost-21-medium: normal 500 21px/24px 'Jost';
+    --jost-44-regular: normal 400 44px/14px 'Jost';
 
     --input-radius: 4px;
   }

@@ -29,12 +29,6 @@ const ShareWishlistBlock: React.FC<ShareBlockProps> = ({ userId }) => {
     }
   };
 
-  // const handleCopyClick = () => {
-  //   navigator.clipboard.writeText(shareLink).then(() => {
-  //     sendNotification(dispatch, 'success', 'Link copied successfully!');
-  //   });
-  // };
-
   return (
     <div className={styles.shareBlock}>
       <div className={styles.section}>
