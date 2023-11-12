@@ -12,6 +12,7 @@
     color: var(--white);
     width: -webkit-fill-available;
     transition: all var(--transition-1);
+    background-color: var(--black);
   }
   .discountCardContainer:hover {
     transition: all var(--transition-1);

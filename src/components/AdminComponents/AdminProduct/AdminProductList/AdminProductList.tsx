@@ -34,13 +34,13 @@ const AdminProductList: React.FC = () => {
 
     dispatch(createProduct(newProduct))
     .then(response => {
-      dispatch(fetchAllProducts({}));
+      dispatch(fetchAllProducts({ includeUnavailable: true }));
       dispatch(selectProduct(response.payload._id));
     });
   };
 
   useEffect(() => {
-    dispatch(fetchAllProducts({}));
+    dispatch(fetchAllProducts({ includeUnavailable: true }));
   }, [dispatch]);
 
   if (!productList || productList.length === 0) {

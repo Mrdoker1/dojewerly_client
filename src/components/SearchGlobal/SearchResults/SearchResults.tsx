@@ -56,7 +56,7 @@ const SearchResults: FC<SearchResultsProps> = ({ products, total }) => {
     <div className={styles.container}>
       <div className={styles.resultsCountContainer}>
         <div>{`${t('RESULTS')} ${total}`}</div>
-        <div onClick={handleViewAll} className={styles.viewAllButton}>{t('VIEW ALL')}</div>
+        {(searchQuery.trim() !== '' && total > 0) && <div onClick={handleViewAll} className={styles.viewAllButton}>{t('VIEW ALL')}</div>}
       </div>
       {(total > 0) ? (
         <div className={styles.productList}>

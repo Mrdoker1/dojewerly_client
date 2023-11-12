@@ -16,7 +16,7 @@ const AdminCollectionProductList: React.FC = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    dispatch(fetchAllProducts({}));
+    dispatch(fetchAllProducts({includeUnavailable: true}));
   }, [dispatch]);
 
   let displayedProducts = productList;

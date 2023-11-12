@@ -9,7 +9,7 @@ export const fetchSearchedProducts = createAsyncThunk(
     try {
       const queryString = `q=${searchQuery}`;  // Формирование строки запроса только с параметром поиска
 
-      const response = await customFetch(`/products?${queryString}`);
+      const response = await customFetch(`/products?${queryString}&includeUnavailable=false`);
 
       if (!response.ok) {
         const data = await response.json();
@@ -29,7 +29,7 @@ export const fetchSearchedProductsCount = createAsyncThunk(
     try {
       const queryString = `q=${searchQuery}`;  // Формирование строки запроса только с параметром поиска
 
-      const response = await customFetch(`/products/total?${queryString}`);
+      const response = await customFetch(`/products/total?${queryString}&includeUnavailable=false`);
       
       if (!response.ok) {
         const data = await response.json();

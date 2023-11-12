@@ -13,7 +13,7 @@ export interface CatalogState {
 }
 
 export interface ProductQueryParams {
-  [key: string]: string | number | undefined;
+  [key: string]: string | number | boolean | undefined;
   sort?: string;
   order?: string;
   q?: string;
@@ -26,6 +26,7 @@ export interface ProductQueryParams {
   type?: string;
   minPrice?: number;
   maxPrice?: number;
+  includeUnavailable?: boolean;
 }
 
 export const initialState: CatalogState = {

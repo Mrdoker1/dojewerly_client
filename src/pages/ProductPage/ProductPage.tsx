@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import icons from '../../assets/icons/icons';
 import Button from '../../components/Button/Button';
 import ProductImage from '../../components/Image/ProductImage/ProductImage';
@@ -8,7 +8,6 @@ import styles from './ProductPage.module.css';
 import { AppDispatch, RootState } from '../../app/store';
 import { fetchProductById } from '../../app/reducers/productsSlice';
 import FavouriteToggle from '../../components/Favourites/FavouriteToggle/FavouriteToggle';
-import { getUserProfile } from '../../app/reducers/userSlice';
 import BackButton from '../../components/Button/BackButton/BackButton';
 import { getLocalizedField } from '../../utils/getLocalizedField';
 import { useTranslation } from 'react-i18next';
@@ -23,6 +22,16 @@ const ProductPage: React.FC = () => {
     const currentCurrency = useSelector((state: RootState) => state.currency.currentCurrency);
     const currentLanguage = useSelector((state: RootState) => state.language.currentLanguage);
     const { t } = useTranslation();
+
+    const renderActionButton = () => {
+      if (product?.props.availability === 'Unavailable') {
+          return <Button text={t('CONTACT SELLER')} size='large' fullWidth state='disabled' />;
+      } else if (product?.props.availability === 'Preorder') {
+          return <Button text={t('PREORDER')} size='large' fullWidth />;
+      } else {
+          return <Button text={t('CONTACT SELLER')} size='large' fullWidth />;
+      }
+  };
 
     useEffect(() => {
       window.scrollTo(0, 0); // сброс позиции скролла к верху страницы
@@ -87,7 +96,7 @@ const ProductPage: React.FC = () => {
                   <span className={styles.stock}>{`${product.stock} ${t('in stock')}`}</span>
                 </div>
                 <div className={styles.actions}>
-                  <Button text={t('CONTACT SELLER')} size='large' fullWidth />
+                  {renderActionButton()}
                   <FavouriteToggle productId={product._id} className={styles.favouriteIcon} color='black'/>
                 </div>
               </div>

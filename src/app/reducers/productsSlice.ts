@@ -179,10 +179,10 @@ export const fetchAllProducts = createAsyncThunk(
     console.log("Query parameters:", queryParams);
     try {
       // Деструктуризация параметров запроса
-      const { sort, order, q, page, limit, material, gender, availability, stock, type, minPrice, maxPrice } = queryParams;
+      const { sort, order, q, page, limit, material, gender, availability, stock, type, minPrice, maxPrice, includeUnavailable } = queryParams;
 
       // Формирование строки запроса с использованием деструктуризации и шаблонных строк
-      const queryString = Object.entries({ sort, order, q, page, limit, material, gender, availability, stock, type, minPrice, maxPrice })
+      const queryString = Object.entries({ sort, order, q, page, limit, material, gender, availability, stock, type, minPrice, maxPrice, includeUnavailable })
         .filter(([, value]) => value !== null && value !== undefined)
         .map(([key, value]) => `${key}=${value}`)
         .join('&');
