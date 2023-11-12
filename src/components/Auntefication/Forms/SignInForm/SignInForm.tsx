@@ -4,7 +4,7 @@ import Input from '../../../Input/Input'
 import Button from '../../../Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../../../app/store';
-import { loginUser, clearError } from '../../../../app/reducers/authSlice';
+import { loginUser, clearError, clearMessage } from '../../../../app/reducers/authSlice';
 import NotificationMessage from '../../../Messages/NotificationMessage/NotificationMessage';
 import PasswordInput from '../../../Input/PasswordInput/PasswordInput';
 import { useModal } from '../../../Modal/ModalProvider';
@@ -55,6 +55,7 @@ const SignInForm: React.FC<SignInFormProps> = memo(({ onSubmit }) => {
       console.log('Login result:', result.meta.requestStatus);
       if (result.meta.requestStatus === 'fulfilled') {
         closeModal();
+        dispatch( clearMessage());
         if (onSubmit) {
           onSubmit();
         }
@@ -101,6 +102,11 @@ const SignInForm: React.FC<SignInFormProps> = memo(({ onSubmit }) => {
               message={t(auth.error.message)}
               iconRight='close'
               iconRightClick={() => dispatch(clearError())}/>}
+            {auth.message !== '' && <NotificationMessage 
+                type={'info' as MessageType}
+                message={auth.message}
+                iconRight='close'
+                iconRightClick={() => dispatch(clearMessage())}/>}
           </AnimatePresence>
         </div>
       </form>
