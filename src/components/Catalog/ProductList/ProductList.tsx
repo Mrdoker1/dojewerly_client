@@ -1,15 +1,13 @@
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchTotalProductsCount } from '../../../app/reducers/productsSlice';
 import { AppDispatch, RootState } from '../../../app/store';
 import ProductCard from '../ProductCard/ProductCard';
 import styles from './ProductList.module.css'
 import Pagination from '../Pagination/Pagination';
-import { getAllProducts, getTotalProductsCount, setAllFilters, setFilter, setTotalProducts } from '../../../app/reducers/catalogSlice';
+import { getAllProducts, getTotalProductsCount } from '../../../app/reducers/catalogSlice';
 import ProductCardSkeleton from '../ProductCard/ProductCardSkeleton';
 import { useTranslation } from 'react-i18next';
-import extractParamsFromURL from '../../../utils/extractParamsFromURL';
 
 const ProductList: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -21,17 +19,10 @@ const ProductList: React.FC = () => {
   const totalPages = useSelector((state: RootState) => state.catalog.totalPages);
   const totalProducts = useSelector((state: RootState) => state.products.totalProducts);
   const { t } = useTranslation();
-
-  useEffect(() => {
-    console.log("Location changed:", location.pathname);
-    // Остальной код
-  }, [location.pathname]);
   
   useEffect(() => {
-    if (filters) {
-      dispatch(getAllProducts(filters));
-      dispatch(getTotalProductsCount(filters));
-    }
+    dispatch(getAllProducts(filters));
+    dispatch(getTotalProductsCount(filters));
   }, [filters, dispatch]);
 
   const handlePageChange = (page: number) => {
