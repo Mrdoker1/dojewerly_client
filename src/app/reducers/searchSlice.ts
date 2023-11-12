@@ -3,8 +3,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { Product } from './productsSlice';
 import { customFetch } from '../../service/apiService';
 
-const apiUrl = process.env.REACT_APP_API_URL;
-
 export const fetchSearchedProducts = createAsyncThunk(
   'search/fetchProducts',
   async (searchQuery: string, thunkAPI) => {

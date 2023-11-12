@@ -3,19 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './SearchGlobal.module.css';
 import { clearSearch, fetchSearchedProducts, fetchSearchedProductsCount, setSearchQuery } from '../../app/reducers/searchSlice';
-import { AppDispatch } from '../../app/store';
+import { AppDispatch, RootState } from '../../app/store';
 import SearchResults from './SearchResults/SearchResults';
 import { motion } from 'framer-motion';
 import icons from '../../assets/icons/icons';
-
-interface RootState {
-  search: {
-    searchQuery: string;
-    total: number;
-    products: any[]; // Замените 'any' на ваш тип продукта
-    isSearchOpen: boolean;
-  };
-}
 
 const SearchGlobal: FC = () => {
   const { t } = useTranslation();
@@ -56,7 +47,7 @@ const SearchGlobal: FC = () => {
         animate={{ opacity: 1, y: 0 }} // Анимация появления (опускается вниз)
         exit={{ opacity: 0, y: -50 }} // Анимация исчезновения (поднимается вверх)
     >
-      <div className={styles.container}>
+        <div className={styles.container}>
         <div className={styles.searchBox}>
               <icons.search  className={styles.searchIcon} onClick={handleSearch}/>
               <input

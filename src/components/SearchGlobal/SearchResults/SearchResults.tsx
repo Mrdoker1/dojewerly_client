@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { setSearchOpen } from '../../../app/reducers/searchSlice';
 import extractParamsFromURL from '../../../utils/extractParamsFromURL';
 import { setAllFilters } from '../../../app/reducers/catalogSlice';
+import Loader from '../../Loader/Loader';
 
 interface SearchResultsProps {
   products: Product[];
@@ -20,6 +21,7 @@ const SearchResults: FC<SearchResultsProps> = ({ products, total }) => {
   const dispatch = useDispatch<AppDispatch>();
   const { t } = useTranslation();
   const searchQuery = useSelector((state: RootState) => state.search.searchQuery);
+  const status = useSelector((state: RootState) => state.search.status);
   const navigate = useNavigate();
 
   const handleViewAll = (event: React.MouseEvent<HTMLInputElement>) => {
@@ -42,13 +44,13 @@ const SearchResults: FC<SearchResultsProps> = ({ products, total }) => {
   //   );
   // } 
 
-  // if (status === 'loading') {
-  //   return (
-  //     <div className={styles.container}>
-  //       <Loader size={20}/>
-  //     </div>
-  //   );
-  // } 
+  if (status === 'loading') {
+    return (
+      <div className={styles.container}>
+        <Loader size={20}/>
+      </div>
+    );
+  } 
 
   return (
     <div className={styles.container}>
