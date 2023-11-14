@@ -63,6 +63,7 @@
     font: var(--cormorant-82-medium); /* Используйте свои переменные для шрифтов */
     color: var(--yellow-1); /* Используйте свою переменную для акцентного цвета */
     letter-spacing: -2px;
+    max-height: 54px;
   }
   
   .discountLabel {
