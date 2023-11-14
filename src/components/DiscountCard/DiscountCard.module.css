@@ -113,5 +113,13 @@
       bottom: 8px;
       right: 8px;
     }
+
+    .discountInfo {
+      gap: 12px;
+    }
+
+    .description {
+      font: var(--jost-12-regular);
+    }
   }
   
