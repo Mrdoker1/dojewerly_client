@@ -66,7 +66,7 @@
   }
   
   .discountLabel {
-    font: var(--jost-40-regular);
+    font: var(--arial-40-regular);
     text-transform: uppercase;
     letter-spacing: -2px;
     padding-left: 40px;

@@ -61,6 +61,10 @@ html {
     --cormorant-52-medium: normal 500 52px/63px 'Cormorant';
     --cormorant-82-medium: normal 500 82px/72px 'Cormorant';
 
+    /* Arial */
+    --arial-40-regular: normal 400 40px/14px 'Arial';
+    --arial-82-regular: normal 400 82px/72px 'Arial';
+
     /* Jost */
     --jost-10-medium: normal 300 10px/19px 'Jost';
     --jost-10-regular: normal 400 10px/25px 'Jost';
