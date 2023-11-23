@@ -2,6 +2,7 @@
   "name": "dojewerly-client",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://mrdoker1.github.io/dojewerly_client/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.5",
@@ -37,7 +38,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "sb": "storybook dev -p 6006",
-    "build-sb": "storybook build"
+    "build-sb": "storybook build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -73,6 +76,7 @@
     "@storybook/react-webpack5": "^7.2.0",
     "@storybook/testing-library": "^0.2.0",
     "eslint-plugin-storybook": "^0.6.13",
+    "gh-pages": "^6.1.0",
     "redux-mock-store": "^1.5.4",
     "storybook": "^7.2.0",
     "storybook-addon-react-router-v6": "^1.0.2"

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import AppRouter from '../components/AppRouter/AppRouter';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, HashRouter } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { validateToken } from '../app/reducers/authSlice';
 import { AppDispatch } from '../app/store';
@@ -17,10 +17,10 @@ function App() {
 
   return (
     <LayoutProvider>
-      <BrowserRouter>
+      <HashRouter>
         <NotificationCenter />
         <AppRouter />
-      </BrowserRouter>
+      </HashRouter>
     </LayoutProvider>
   );
 }
