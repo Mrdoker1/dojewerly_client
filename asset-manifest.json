@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/dojewerly_client/static/css/main.00a01ce8.css",
-    "main.js": "/dojewerly_client/static/js/main.da8ff34a.js",
+    "main.js": "/dojewerly_client/static/js/main.c14c83a4.js",
     "static/media/hero.mp4": "/dojewerly_client/static/media/hero.339c3be014506fb62101.mp4",
     "static/media/background.jpg": "/dojewerly_client/static/media/background.3b26023ead3b1fa15d2d.jpg",
     "static/media/banner-dox-2.jpg": "/dojewerly_client/static/media/banner-dox-2.bec31eadb3f5de9c6ee0.jpg",
@@ -54,10 +54,10 @@
     "static/media/plus.svg": "/dojewerly_client/static/media/plus.39b3e8d3e6646ff9d8e78e6f79363518.svg",
     "static/media/checkmark.svg": "/dojewerly_client/static/media/checkmark.9650efb0b6e0bb525c673c2d72587722.svg",
     "main.00a01ce8.css.map": "/dojewerly_client/static/css/main.00a01ce8.css.map",
-    "main.da8ff34a.js.map": "/dojewerly_client/static/js/main.da8ff34a.js.map"
+    "main.c14c83a4.js.map": "/dojewerly_client/static/js/main.c14c83a4.js.map"
   },
   "entrypoints": [
     "static/css/main.00a01ce8.css",
-    "static/js/main.da8ff34a.js"
+    "static/js/main.c14c83a4.js"
   ]
 }
