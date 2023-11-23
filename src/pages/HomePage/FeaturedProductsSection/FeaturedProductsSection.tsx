@@ -4,21 +4,20 @@ import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/module
 import 'swiper/css';
 import styles from './FeaturedProductsSection.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllProducts } from '../../../app/reducers/productsSlice';
 import ProductCard from '../../../components/Catalog/ProductCard/ProductCard';
 import { AppDispatch, RootState } from '../../../app/store';
 import ProductCardSkeleton from '../../../components/Catalog/ProductCard/ProductCardSkeleton';
 import { useTranslation } from 'react-i18next';
+import { fetchFeaturedProducts } from '../../../app/reducers/featuredProductsSlice';
 
 const FeaturedProductsSection = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const products = useSelector((state: RootState) => state.products.products);
+  const products = useSelector((state: RootState) => state.featuredProducts.products);
   const status = useSelector((state: RootState) => state.products.status); // Selecting the status
   const { t } = useTranslation();
   
     useEffect(() => {
-        dispatch(fetchAllProducts({minPrice: 0}));
-        console.log();
+        dispatch(fetchFeaturedProducts({includeUnavailable: false}));
     }, [dispatch]);
 
   return (

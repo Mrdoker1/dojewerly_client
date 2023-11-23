@@ -1,0 +1,125 @@
+.discountCardContainer {
+    max-width: 428px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: 0.1s linear;
+    display: flex;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: var(--background-image);
+    border-radius: 14px;
+    color: var(--white);
+    width: -webkit-fill-available;
+    transition: all var(--transition-1);
+    background-color: var(--black);
+  }
+  .discountCardContainer:hover {
+    transition: all var(--transition-1);
+    scale: 1.01;
+  }
+
+  .cardContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 40px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .logoAndId {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .logo {
+    /* Размеры и стили для логотипа */
+    width: 14px;
+    height: 14px;
+  }
+  
+  .userId {
+    font: var(--jost-14-regular); /* Используйте свои переменные для шрифтов */
+    text-transform: uppercase;
+  }
+
+  .discount{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .discountInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    color: var(--white);
+  }
+  
+  .discountValue {
+    font: var(--cormorant-82-medium); /* Используйте свои переменные для шрифтов */
+    color: var(--yellow-1); /* Используйте свою переменную для акцентного цвета */
+    letter-spacing: -2px;
+    max-height: 54px;
+  }
+  
+  .discountLabel {
+    font: var(--cormorant-44-medium);
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    padding-left: 40px;
+  }
+  
+  .description {
+    font: var(--jost-14-regular);
+    color: var(--grey-2);
+    max-width: 320px;
+  }
+  
+  .copyIcon {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    cursor: pointer;
+  }
+
+  .iconCopy:hover{
+    transition: all var(--transition-1);
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .iconCopy {
+    /* Стили для иконки копирования */
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* Адаптивные стили */
+  @media screen and (max-width: 480px) {
+    .discountCardContainer {
+      max-width: 100%;
+      padding: 10px;
+    }
+
+    .cardContent {
+      padding: 12px 12px;
+    }
+
+    .copyIcon {
+      bottom: 8px;
+      right: 8px;
+    }
+
+    .discountInfo {
+      gap: 12px;
+    }
+
+    .description {
+      font: var(--jost-12-regular);
+    }
+  }
+  

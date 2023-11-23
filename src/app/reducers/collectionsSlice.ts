@@ -49,7 +49,7 @@ export const createCollection = createAsyncThunk(
       throw new Error('No session');
     }
 
-    const response = await customFetch(`${apiUrl}/collections`, {
+    const response = await customFetch(`/collections`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

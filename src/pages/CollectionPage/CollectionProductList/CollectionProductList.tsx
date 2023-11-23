@@ -23,7 +23,7 @@ const CollectionProductList: React.FC<CollectionProductListProps> = ({ productId
   );
 
   useEffect(() => {
-    window.scrollTo(0, 0); // сброс позиции скролла к верху страницы
+    // window.scrollTo(0, 0); // сброс позиции скролла к верху страницы
     // Загрузим все продукты, которые еще не загружены
     productIds.forEach(id => {
       if (!allProducts.find(product => product._id === id)) {

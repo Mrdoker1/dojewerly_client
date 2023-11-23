@@ -13,7 +13,7 @@ interface DoxModalContentProps {
 
 const InfoModal: React.FC<DoxModalContentProps> = ({buttonOnClick, bannerImage, heading, subheading, description, buttonText}) => {
   return (
-<div className={styles.container}>
+    <div className={styles.container}>
       {bannerImage &&
         <div className={styles.imageContainer}>
           <img src={bannerImage} alt="Banner" />

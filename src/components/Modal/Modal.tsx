@@ -4,16 +4,18 @@ import icons from '../../assets/icons/icons';
 import { motion } from 'framer-motion';
 
 interface ModalProps {
-  isModalClosable?: boolean;
-  onClose: () => void;
+  showCloseIcon?: boolean;
+  onClose: (() => void) | undefined;
   children: React.ReactNode;
 }
 
-const Modal: React.FC<ModalProps> = ({ isModalClosable = true, onClose, children }) => {  
+const Modal: React.FC<ModalProps> = ({ showCloseIcon = true, onClose, children }) => {  
 
-  const handleClose = (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
+  const handleClose = (e: React.MouseEvent<SVGSVGElement, MouseEvent> | React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation();
-    onClose();
+    if (onClose) {
+      onClose();
+    }
   };
 
   return (
@@ -22,9 +24,9 @@ const Modal: React.FC<ModalProps> = ({ isModalClosable = true, onClose, children
         animate={{ opacity: 1, y: 0 }} // Анимация появления (опускается вниз)
         exit={{ opacity: 0, y: 50 }} // Анимация исчезновения (поднимается вверх)
         className={styles.modal}
-        onClick={(e) => {e.stopPropagation()}}
+        onClick={(e) =>  e.stopPropagation()}
       >
-        {isModalClosable && <icons.close className={styles.closeButton} onClick={(e) => handleClose(e)} />}
+        {showCloseIcon && <icons.close className={styles.closeButton} onClick={(e) => handleClose(e)} />}
         {children}
       </motion.div>
   );

@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { batch, shallowEqual, useDispatch, useSelector } from 'react-redux';
 import Button from '../../Button/Button';
 import { fetchCatalogCriteria } from '../../../app/reducers/catalogCriteriaSlice';
-import { setFilter, resetFilters } from '../../../app/reducers/catalogSlice';
+import { setFilter, resetFilters, ProductQueryParams } from '../../../app/reducers/catalogSlice';
 import { AppDispatch, RootState } from '../../../app/store';
-import { CatalogState } from '../../../app/reducers/catalogSlice';
 import styles from './Filters.module.css'
 import SearchInput from '../../Input/SearchInput/SearchInput';
 import FilterDropdown from '../../Dropdown/FilterDropdown/FilterDropdown';
@@ -20,7 +19,7 @@ import topMessageStyles from '../../Messages/TopMessage/TopMessage.module.css';
 const Filters = () => {
     const dispatch = useDispatch<AppDispatch>();
     const criteria = useSelector((state: RootState) => state.catalogCriteria.criteria);
-    const filters = useSelector((state: RootState) => state.catalog, shallowEqual);
+    const filters = useSelector((state: RootState) => state.catalog.params, shallowEqual);
     const status = useSelector((state: RootState) => state.catalogCriteria.status);
     const inputRef = React.useRef<HTMLInputElement>(null);
     const navigate = useNavigate(); 
@@ -35,7 +34,6 @@ const Filters = () => {
     });
 
     useEffect(() => {
-        console.log(stickyTopValue);
         if (!criteria) {
             dispatch(fetchCatalogCriteria());
         }
@@ -47,7 +45,7 @@ const Filters = () => {
         } else setFilterShown(true);
     }
 
-    const handleFilterChange = (name: keyof CatalogState, value: string | undefined, updateURL: boolean = true) => {
+    const handleFilterChange = (name: keyof ProductQueryParams, value: string | undefined, updateURL: boolean = true) => {
         console.log("Filter changed:", name, value);
         
         batch(() => {

@@ -1,11 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import icons from '../../assets/icons/icons';
+import { MessageType } from '../../components/Messages/messageTypes';
 
 export interface Notification {
   id: number;
-  type: 'success' | 'error';
+  type: MessageType;
   message: string;
   iconRight?: keyof typeof icons; // Добавим иконку справа
+  iconLeft?: keyof typeof icons; // Добавим иконку справа
   timeout?: number; // Добавим таймаут
 }
 

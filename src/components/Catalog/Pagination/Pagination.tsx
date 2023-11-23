@@ -2,14 +2,19 @@ import React from 'react';
 import Button from '../../Button/Button';
 import styles from './Pagination.module.css';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../app/store';
 
 interface PaginationProps {
-  currentPage: number;
-  totalPages: number;
   onPageChange: (page: number) => void;
 }
 
-const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
+const Pagination: React.FC<PaginationProps> = ({ onPageChange }) => {
+  
+  const currentPage = useSelector((state: RootState) => state.catalog.params.page) || 1;
+  const totalPages = useSelector((state: RootState) => state.catalog.totalPages) || 1;
+
+
   const { t } = useTranslation();
   if (totalPages <= 1) return null;
 

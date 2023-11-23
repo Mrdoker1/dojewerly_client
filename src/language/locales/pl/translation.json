@@ -16,7 +16,7 @@
     "FOLLOW US ON INSTAGRAM": "SUBSKRYBUJ NA INSTAGRAMIE",
     "Home": "Główna",
     "catalog": "Katalog",
-    "Catalog": "Каталог",
+    "Catalog": "Katalog",
     "Collections": "Kolekcje",
     "Any material": "Dowolny materiał",
     "Any gender": "Dowolna płeć",
@@ -93,5 +93,15 @@
     "VIEW ALL": "POKAŻ WSZYSTKO",
     "No products found": "Nie znaleziono produktów",
     "Loading": "Ładowanie",
-    "articles": "Artykuły"
+    "articles": "Artykuły",
+    "Invalid password!": "Nieprawidłowe hasło!",
+    "Your access expired!": "Twój dostęp wygasł!",
+    "Please sign in again.": "Proszę zaloguj się ponownie.",
+    "Introducing unique products and special offers not found in the main catalog. Stay tuned for updates!": "Przedstawiamy unikalne produkty i specjalne oferty, których nie znajdziesz w głównym katalogu. Bądź na bieżąco z aktualizacjami!",
+    "Save with every purchase! Use our discount card for exclusive discounts!": "Oszczędzaj przy każdym zakupie! Użyj naszej karty rabatowej dla wyłącznych zniżek!",
+    "PREORDER": "PRZEDSPRZEDAŻ",
+    "EMAILS": "EMAILE",
+    "Your account has been created successfully!": "Your account has been created successfully!",
+    "please check your email!": "please check your email!",
+    "Confirmation email sent, please check your email!": "E-mail z potwierdzeniem wysłany, sprawdź swoją pocztę!"
 }

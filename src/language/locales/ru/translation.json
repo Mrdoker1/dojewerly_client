@@ -94,5 +94,14 @@
     "No products found": "Товары не найдены",
     "Loading": "Загрузка",
     "articles": "Статьи",
-    "Invalid password!": "Неправильный пароль!"
+    "Invalid password!": "Неправильный пароль!",
+    "Your access expired!": "Ваш доступ истек!",
+    "Please sign in again.": "Пожалуйста, войдите снова.",
+    "Introducing unique products and special offers not found in the main catalog. Stay tuned for updates!": "Уникальные товары и специальные предложения, которых нет в основном каталоге. Следите за обновлениями!",
+    "Save with every purchase! Use our discount card for exclusive discounts!": "Экономьте с каждой покупкой! Используйте нашу дисконтную карту для эксклюзивных скидок!",
+    "PREORDER": "ПРЕДЗАКАЗ",
+    "EMAILS": "ПИСЬМА",
+    "Your account has been created successfully!": "Ваш аккаунт был успешно создан!",
+    "please check your email!": "проверьте вашу почту!",
+    "Confirmation email sent, please check your email!": "Письмо с подтверждением отправлено, проверьте вашу почту!"
 }

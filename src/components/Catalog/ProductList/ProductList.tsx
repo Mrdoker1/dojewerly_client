@@ -1,54 +1,38 @@
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { batch, useDispatch, useSelector } from 'react-redux';
-import { fetchAllProducts, fetchTotalProductsCount } from '../../../app/reducers/productsSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../../app/store';
 import ProductCard from '../ProductCard/ProductCard';
 import styles from './ProductList.module.css'
 import Pagination from '../Pagination/Pagination';
-import { setFilter, setTotalProducts } from '../../../app/reducers/catalogSlice';
-import { getUserProfile } from '../../../app/reducers/userSlice';
+import { getAllProducts, getTotalProductsCount } from '../../../app/reducers/catalogSlice';
 import ProductCardSkeleton from '../ProductCard/ProductCardSkeleton';
 import { useTranslation } from 'react-i18next';
-import LoadMoreButton from '../LoadMoreButton/LoadMoreButton';
 
 const ProductList: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const products = useSelector((state: RootState) => state.products.products);
-  const productListStatus = useSelector((state: RootState) => state.products.status);
-  const filters = useSelector((state: RootState) => state.catalog);
+  const products = useSelector((state: RootState) => state.catalog.products);
+  const status = useSelector((state: RootState) => state.catalog.status);
+  const filters = useSelector((state: RootState) => state.catalog.params);
   const navigate = useNavigate();
   const location = useLocation();
   const totalPages = useSelector((state: RootState) => state.catalog.totalPages);
   const totalProducts = useSelector((state: RootState) => state.products.totalProducts);
-  const token = useSelector((state: RootState) => state.auth.token);
   const { t } = useTranslation();
-
+  
   useEffect(() => {
-    // console.log('ProductList useEffect triggered', filters); // Этот лог
-    // if (token) {
-    //   try {
-    //     dispatch(getUserProfile()).unwrap();
-    //   } catch (error) {
-    //     // Обработка ошибок
-    //   }
-    // }
-    batch(() => {
-      dispatch(fetchAllProducts(filters));
-      dispatch(fetchTotalProductsCount(filters));
-      dispatch(setTotalProducts(totalProducts));
-    });
-  }, [dispatch, filters, token, totalProducts]);
+    dispatch(getAllProducts(filters));
+    dispatch(getTotalProductsCount(filters));
+  }, [filters, dispatch]);
 
   const handlePageChange = (page: number) => {
     //window.scrollTo(0, 0); // сброс позиции скролла к верху страницы
-    dispatch(setFilter({ name: 'page', value: page }));
     const newSearchParams = new URLSearchParams(location.search);
     newSearchParams.set('page', page.toString());
     navigate(`${location.pathname}?${newSearchParams.toString()}`, { replace: true });
   };  
 
-  if (productListStatus === 'loading') {
+  if (status === 'loading') {
     return (
       <div className={styles.container}>
         <div className={styles.productList}>
@@ -60,14 +44,14 @@ const ProductList: React.FC = () => {
     );
   } 
 
-  if (productListStatus === 'failed') {
+  if (status === 'failed') {
     return (
       <div className={styles.container}>
         <div className={styles.errorIndicator}>Ошибка загрузки продуктов</div>
       </div>);
   }
 
-  if (products.length === 0) {
+  if (products && products.length === 0) {
     return (
       <div className={styles.container}>
         <div className={styles.noProducts}>
@@ -84,19 +68,16 @@ const ProductList: React.FC = () => {
     <>
       <div className={styles.container}>
         <div className={styles.productList}>
-          {products.map(product => (
+          {products && products.map(product => (
             <ProductCard key={product._id} product={product} />
           ))}
         </div>
       </div>
       <Pagination 
-        currentPage={Number(filters.page) || 1} 
-        totalPages={Number(totalPages) || 1}
         onPageChange={handlePageChange}
       />
-      {/* <LoadMoreButton /> */}
     </>
   );
 };
 
-export default ProductList;
+export default React.memo(ProductList);

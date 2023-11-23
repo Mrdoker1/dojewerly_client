@@ -1,0 +1,46 @@
+.container{
+    width: -webkit-fill-available;
+    width: -moz-available; /* Для Firefox */
+    width: stretch; /* Для других современных браузеров */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid var(--grey-2);
+    border-radius: 8px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all var(--transition-1);
+}
+
+.container:hover{
+    background-color: var(--grey-3);
+}
+
+.heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name{
+    font: var(--cormorant-29-medium);
+}
+
+.description {
+    font: var(--jost-14-regular);
+    color: var(--grey-1);
+    word-break: break-all;
+    max-height: 40px; /* Примерное значение; настройте его в соответствии с вашими потребностями */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* количество строк, которые вы хотите отображать */
+    -webkit-box-orient: vertical; /* необходимо для работы line-clamp */
+    text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 764px)  {
+    .name {
+        font: var(--cormorant-24-medium); 
+    }
+  }

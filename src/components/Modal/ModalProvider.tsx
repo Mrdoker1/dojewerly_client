@@ -1,15 +1,14 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext } from 'react';
 import Modal from './Modal';
 import styles from './Modal.module.css';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../app/store';
+import { ModalType, closeModal as closeModalAction, openModal as openModalAction} from '../../app/reducers/modalSlice';
 
 interface ModalContextProps {
-  isModalOpen: boolean;
-  isModalClosable: boolean;
-  openModal: () => void;
-  closeModal: () => void;
-  openModalWithContent: (content: React.ReactNode) => void;
-  openBlockedModalWithContent: (content: React.ReactNode) => void,
+  openModalWithContent: (type: ModalType, content: React.ReactNode, onClose?: () => void) => void;
+  closeModal: () => void;  // Добавляем эту строку
 }
 
 const ModalContext = createContext<ModalContextProps | undefined>(undefined);
@@ -23,47 +22,44 @@ export const useModal = () => {
 };
 
 interface ModalProviderProps {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }
 
 export const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalContent, setModalContent] = useState<React.ReactNode | null>(null);
-  const [isModalClosable, setIsModalClosable] = useState(true);
+  const dispatch = useDispatch<AppDispatch>();
+  const modalState = useSelector((state: RootState) => state.modal); // RootState - это тип вашего главного состояния Redux.
 
-  const openModal = () => setIsModalOpen(true);
+  const openModalWithContent = (type: ModalType, content: React.ReactNode, onClose?: () => void) => {
+    dispatch(openModalAction({ type, content, onClose }));
+  };
+
   const closeModal = () => {
-    setIsModalOpen(false);
-    setModalContent(null);  // очищаем контент после закрытия
-    setIsModalClosable(true)
+    dispatch(closeModalAction());
   };
 
-  const openModalWithContent = (content: React.ReactNode) => {
-    openModal();
-    setModalContent(content);
-  };
-
-  const openBlockedModalWithContent = (content: React.ReactNode) => {
-    setIsModalClosable(false); // Запрещаем закрытие модального окна
-    setModalContent(content);  // Устанавливаем контент
-    setIsModalOpen(true);      // Открываем модальное окно
+  const closeModalHandler = () => {
+    if (modalState.onClose) {
+      modalState.onClose();
+    } else {
+      dispatch(closeModalAction());
+    }
   };
 
   return (
-    <ModalContext.Provider value={{ isModalOpen, isModalClosable, openModal, closeModal, openModalWithContent, openBlockedModalWithContent }}>
-        {children}
-        <AnimatePresence>
-          {isModalOpen && 
-            <motion.div
-            initial={{ opacity: 0 }} // Начальное состояние (невидимо и наверху)
-            animate={{ opacity: 1 }} // Анимация появления (опускается вниз)
-            exit={{ opacity: 0 }} // Анимация исчезновения (поднимается вверх)
+    <ModalContext.Provider value={{ openModalWithContent, closeModal }}>
+      {children}
+      <AnimatePresence>
+        {modalState.type && 
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             className={styles.overlay}
-            onClick={isModalClosable ? closeModal : () => {}}
+            onClick={() => closeModalHandler()}
           >
-            <Modal key={Date.now()} isModalClosable={isModalClosable} onClose={closeModal}>{modalContent}</Modal>
+            <Modal key={Date.now()} onClose={closeModalHandler}>{modalState.content}</Modal>
           </motion.div>}
-        </AnimatePresence>
+      </AnimatePresence>
     </ModalContext.Provider>
   );
 };

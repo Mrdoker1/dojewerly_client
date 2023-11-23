@@ -2,8 +2,6 @@ import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { ProductQueryParams } from './catalogSlice';
 import { customFetch } from '../../service/apiService';
 
-const apiUrl = process.env.REACT_APP_API_URL;
-
 export type ProductUpdatableProperties = 'name' | 'price' | 'stock' | 'props' | 'imageURLs' | 'localization' | ProductPropsUpdatableProperties;
 
 export type ProductPropsUpdatableProperties = 'id' | 'info' | 'description' | 'availability' | 'material' | 'gender' | 'type';
@@ -181,10 +179,10 @@ export const fetchAllProducts = createAsyncThunk(
     console.log("Query parameters:", queryParams);
     try {
       // Деструктуризация параметров запроса
-      const { sort, order, q, page, limit, material, gender, availability, stock, type, minPrice, maxPrice } = queryParams;
+      const { sort, order, q, page, limit, material, gender, availability, stock, type, minPrice, maxPrice, includeUnavailable } = queryParams;
 
       // Формирование строки запроса с использованием деструктуризации и шаблонных строк
-      const queryString = Object.entries({ sort, order, q, page, limit, material, gender, availability, stock, type, minPrice, maxPrice })
+      const queryString = Object.entries({ sort, order, q, page, limit, material, gender, availability, stock, type, minPrice, maxPrice, includeUnavailable })
         .filter(([, value]) => value !== null && value !== undefined)
         .map(([key, value]) => `${key}=${value}`)
         .join('&');
@@ -354,11 +352,19 @@ export const productsSlice = createSlice({
           state.products[productIndex] = action.payload.productData;
         }
       })
+      .addCase(deleteProduct.rejected, (state) => {
+        state.status = 'failed';
+        state.error = 'Failed to delete product';
+      })
+      .addCase(deleteProduct.pending, (state) => {
+        state.status = 'loading';
+      })
       .addCase(deleteProduct.fulfilled, (state, action: PayloadAction<string>) => {
         state.status = 'succeeded';
         state.products = state.products.filter((prod) => prod._id !== action.payload);
       })
       .addCase(fetchAllProducts.pending, (state) => {
+        // state.products = [];
         state.status = 'loading';
       })
       .addCase(fetchAllProducts.fulfilled, (state, action: PayloadAction<Product[]>) => {
@@ -378,6 +384,13 @@ export const productsSlice = createSlice({
         if (productIndex > -1) {
           state.products[productIndex].imageURLs = action.payload.updatedProduct.imageURLs;
         }
+      })
+      .addCase(deleteProductImage.rejected, (state) => {
+        state.status = 'failed';
+        state.error = 'Failed to delete product image';
+      })
+      .addCase(deleteProductImage.pending, (state) => {
+        state.status = 'loading';
       })
       .addCase(deleteProductImage.fulfilled, (state, action: PayloadAction<{ id: string; imageUrl: string }>) => {
         const productIndex = state.products.findIndex((prod) => prod._id === action.payload.id);
@@ -399,6 +412,13 @@ export const productsSlice = createSlice({
         if (productIndex > -1) {
           state.products[productIndex] = action.payload;
         }
+      })
+      .addCase(partialUpdateProduct.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(partialUpdateProduct.rejected, (state) => {
+        state.status = 'failed';
+        state.error = 'Failed to fetch partial Update Product';
       })
       .addCase(fetchTotalProductsCount.fulfilled, (state, action: PayloadAction<number>) => {
         state.totalProducts = action.payload;

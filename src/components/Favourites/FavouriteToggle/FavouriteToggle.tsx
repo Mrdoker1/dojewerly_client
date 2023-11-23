@@ -10,6 +10,7 @@ import icons from '../../../assets/icons/icons';
 import { sendNotification } from '../../NotificationCenter/notificationHelpers';
 import { getUserProfile } from '../../../app/reducers/userSlice';
 import styles from './FavouriteToggle.module.css';
+import Loader from '../../Loader/Loader';
 
 interface FavouriteToggleProps {
   productId: string;
@@ -22,7 +23,7 @@ const FavouriteToggle: React.FC<FavouriteToggleProps> = ({ productId, className,
   const token = useSelector((state: RootState) => state.auth.token);
   const user = useSelector((state: RootState) => state.user.user);
   const [isFavourite, setIsFavourite] = useState(user?.favorites.includes(productId) || false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // Добавлено: локальное состояние для индикации загрузки
   const { openModal } = useCustomModal();
 
   useEffect(() => {
@@ -36,20 +37,16 @@ const FavouriteToggle: React.FC<FavouriteToggleProps> = ({ productId, className,
     event.preventDefault();
 
     if (!token) {
-      console.log('TOKEN');
       openModal('signup');
       return;
     }
 
-    if (isLoading) {
-      return;
-    } setIsLoading(true);
-
+    setIsLoading(true);
     if (token) {
       try {
         await dispatch(getUserProfile()).unwrap();
       } catch (error) {
-
+        // Обработка ошибок (если нужно)
       }
     }
 
@@ -60,6 +57,8 @@ const FavouriteToggle: React.FC<FavouriteToggleProps> = ({ productId, className,
         setIsFavourite(false);
       } catch (error) {
         sendNotification(dispatch, 'error', 'Failed to remove product from favourites.');
+      } finally {
+        setIsLoading(false); // Добавлено: сброс состояния загрузки после завершения операции
       }
     } else {
       try {
@@ -68,16 +67,24 @@ const FavouriteToggle: React.FC<FavouriteToggleProps> = ({ productId, className,
         setIsFavourite(true);
       } catch (error) {
         sendNotification(dispatch, 'error', 'Failed to add product to favourites.');
+      } finally {
+        setIsLoading(false); // Добавлено: сброс состояния загрузки после завершения операции
       }
     }
-
-    setIsLoading(false);
   };
+
+  if (isLoading) {
+    return (
+      <div className={`${styles.favouriteIcon} ${className} ${isFavourite ? styles.filled : ''}`} >
+        <Loader size={16}/>
+      </div>
+    );
+  } 
 
   return (
     <>
       <div 
-        className={`${styles.favouriteIcon} ${className} ${isFavourite ? styles.filled : ''} ${isLoading ? styles.loading : ''}`} 
+        className={`${styles.favouriteIcon} ${className} ${isFavourite ? styles.filled : ''}`} 
         onClick={toggleFavourite}
         style={{color: color}}
       >

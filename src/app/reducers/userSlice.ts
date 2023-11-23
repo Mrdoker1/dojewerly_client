@@ -1,19 +1,21 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { customFetch } from '../../service/apiService';
 
-const apiUrl = process.env.REACT_APP_API_URL;
+export enum UserRole {
+  ADMIN = 'admin',
+  USER = 'user',
+}
 
 export interface User {
   _id: string;
-  username: string;
   email: string;
+  username: string;
   password: string;
-  __v: number;
-  role: string;
+  role: UserRole;
+  isActivated: boolean;
+  discount: number;
   favorites: string[];
-  settings: {
-    email: boolean;
-  }
+  settings: { email: boolean; language: string };
 }
 
 interface UserState {
@@ -57,7 +59,7 @@ export const getUserProfile = createAsyncThunk(
 
 export const updateUserProfile = createAsyncThunk(
   'user/updateUserProfile',
-  async ({ username,email, password, settings }: { username: string; email: string; password: string; settings?: { email: boolean } }, thunkAPI) => {
+  async ({ username, email, password, settings }: { username: string; email: string; password: string; settings?: { language: string, email: boolean } }, thunkAPI) => {
     const token = localStorage.getItem('token');
     if (!token) {
       throw new Error('No session');
@@ -93,7 +95,7 @@ export const updateUserProfile = createAsyncThunk(
 
 export const patchUserProfile = createAsyncThunk(
   'user/patchUserProfile',
-  async (update: { email?: string; username?: string; password?: string; settings?: { email: boolean } }, thunkAPI) => {
+  async (update: { email?: string; username?: string; password?: string; settings?: { language?: string, email?: boolean } }, thunkAPI) => {
     const token = localStorage.getItem('token');
     if (!token) {
       throw new Error('No session');

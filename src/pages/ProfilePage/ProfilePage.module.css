@@ -7,6 +7,14 @@
   padding: 20px 0;
 }
 
+.additionalContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: -webkit-fill-available;
+}
+
 .form {
   display: flex;
   flex-direction: row;

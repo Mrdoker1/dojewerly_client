@@ -23,7 +23,7 @@
   .infoSection {
     width: -webkit-fill-available;
     z-index: 2;
-    padding: 8px 16px;
+    padding: 8px 12px 8px 16px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -84,7 +84,9 @@
   }
 
   .heartIcon {
+    display: flex;
     cursor: pointer;
+    opacity: 1;
   }
   
   .heartIcon path {

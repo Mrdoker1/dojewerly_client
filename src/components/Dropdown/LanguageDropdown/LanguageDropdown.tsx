@@ -6,6 +6,7 @@ import styles from './LanguageDropdown.module.css';
 import { setLanguage } from '../../../app/reducers/languageSlice'; // Путь к вашему редьюсеру языка
 import createDropdownOptions from '../../../utils/createDropdownOptions';
 import { AVAILABLE_LANGUAGES } from '../../../constants';
+import { patchUserProfile } from '../../../app/reducers/userSlice';
 
 const LanguageDropdown: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -20,6 +21,9 @@ const LanguageDropdown: React.FC = () => {
 
     const handleLanguageChange = (selectedLanguage: string) => {
         dispatch(setLanguage(selectedLanguage));
+        if (localStorage.getItem('token')) {
+            dispatch(patchUserProfile({ settings: { language: selectedLanguage } }))
+        }
     };
 
     return (

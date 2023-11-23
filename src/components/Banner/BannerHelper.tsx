@@ -1,22 +1,28 @@
 import React from 'react';
-import Banner from './Banner';
+import HorizontalBanner from './HorizontalBanner/HorizontalBanner';
 import backgroundOne from '../../assets/images/banner1/background.jpg';
 import imageOne from '../../assets/images/banner1/image.png';
 import backgroundTwo from '../../assets/images/banner2/background.jpg';
+import backgroundThree from '../../assets/images/banner-dox-2.jpg';
 import imageTwo from '../../assets/images/banner2/image.png';
+import VerticalBanner from './VerticalBanner/VerticalBanner';
+import { useTranslation } from 'react-i18next';
+import { useCustomModal } from '../Modal/ModalHelper';
 
 export interface CustomBannerProps {
   /** Тип баннера */
-  type: 'left' | 'right';
+  type: 'HorizontalLeft' | 'HorizontalRight' | 'Vertical';
 }
 
 const CustomBanner: React.FC<CustomBannerProps> = ({ type }) => {
   let banner;
+  const { t } = useTranslation();
+  const { openModal } = useCustomModal();
 
   switch (type) {
-    case 'left':
+    case 'HorizontalLeft':
       banner = (
-        <Banner
+        <HorizontalBanner
           type='left'
           image={imageOne}
           backgroundImage={backgroundOne}
@@ -28,9 +34,9 @@ const CustomBanner: React.FC<CustomBannerProps> = ({ type }) => {
         />
       );
       break;
-    case 'right':
+    case 'HorizontalRight':
       banner = (
-        <Banner
+        <HorizontalBanner
           type='right'
           image={imageTwo}
           backgroundImage={backgroundTwo}
@@ -42,8 +48,18 @@ const CustomBanner: React.FC<CustomBannerProps> = ({ type }) => {
         />
       );
       break;
+      case 'Vertical':
+        banner = (
+          <VerticalBanner
+            backgroundImage={backgroundThree}
+            onClick={ () => openModal('dox')}
+            title='DO X Jewelry'
+            text={t('Introducing unique products and special offers not found in the main catalog. Stay tuned for updates!')}
+            color='light'
+          />
+        );
+        break;
   }
-
   return banner;
 };
 

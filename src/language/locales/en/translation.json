@@ -15,7 +15,7 @@
     "Join #do.jewelry": "Join #do.jewelry",
     "FOLLOW US ON INSTAGRAM": "FOLLOW US ON INSTAGRAM",
     "Home": "Home",
-    "сatalog": "Catalog",
+    "catalog": "Catalog",
     "Catalog": "Catalog",
     "Collections": "Collections",
     "Any material": "Any material",
@@ -94,5 +94,14 @@
     "No products found": " No products found",
     "Loading": "Loading",
     "articles": "Articles",
-    "Invalid password!": "Invalid password!"
+    "Invalid password!": "Invalid password!",
+    "Your access expired!": "Your acess expired!",
+    "Please sign in again.": "Please sign in again.",
+    "Introducing unique products and special offers not found in the main catalog. Stay tuned for updates!": "Introducing unique products and special offers not found in the main catalog. Stay tuned for updates!",
+    "Save with every purchase! Use our discount card for exclusive discounts!": "Save with every purchase! Use our discount card for exclusive discounts!",
+    "PREORDER": "PREORDER",
+    "EMAILS": "EMAILS",
+    "Your account has been created successfully!": "Your account has been created successfully!",
+    "please check your email!": "please check your email!",
+    "Confirmation email sent, please check your email!": "Confirmation email sent, please check your email!"
 }

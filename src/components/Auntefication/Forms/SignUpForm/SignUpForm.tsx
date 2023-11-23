@@ -4,7 +4,7 @@ import Input from '../../../Input/Input'
 import Button from '../../../Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../../../app/store';
-import { clearError, registerUser } from '../../../../app/reducers/authSlice';
+import { clearError, registerUser, setMessage } from '../../../../app/reducers/authSlice';
 import NotificationMessage from '../../../Messages/NotificationMessage/NotificationMessage';
 import { useNavigate } from 'react-router-dom';
 import PasswordInput from '../../../Input/PasswordInput/PasswordInput';
@@ -53,7 +53,8 @@ const SignUpForm = memo(() => {
     dispatch(registerUser({ username, email, password })).then((result) => {
       console.log('Create account status:', result.meta.requestStatus);
       if (result.meta.requestStatus === 'fulfilled') {
-        sendNotification(dispatch, 'success', 'Your account has been created successfully!');
+        sendNotification(dispatch, 'success', t('Your account has been created successfully!'));
+        dispatch(setMessage({message:`${t('Confirmation email sent, please check your email!')}`}))
         navigate("/signin"); // Используйте navigate для перенаправления на страницу /dashboard
       }
     });
@@ -75,7 +76,7 @@ const SignUpForm = memo(() => {
             }}
           />
           <Input 
-            type="text"
+            type="email"
             label={t('Email Address')}
             value={email}
             placeholder={t('your@email.com')}

@@ -2,8 +2,6 @@ import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { MessageType } from '../../components/Messages/messageTypes';
 import { customFetch } from '../../service/apiService';
 
-const apiUrl = process.env.REACT_APP_API_URL;
-
 class AppError extends Error {
   type: MessageType;
 
@@ -136,7 +134,8 @@ export const authSlice = createSlice({
     token: null as string | null,
     status: 'idle',
     session: null as 'started' | 'expired' | null,
-    error: null as { message: string; type: string } | null
+    error: null as { message: string; type: string } | null,
+    message: '',
   },
   reducers: {
     clearError: (state) => {
@@ -144,6 +143,12 @@ export const authSlice = createSlice({
     },
     setSessionExpired: (state) => {
       state.session = 'expired';
+    },
+    setMessage: (state, action: PayloadAction<{ message: string }>) => {
+      state.message =  action.payload.message;
+    },
+    clearMessage: (state) => {
+      state.message = '';
     },
   },
     extraReducers: (builder) => {
@@ -231,5 +236,5 @@ export const authSlice = createSlice({
     },
   });
 
-export const { clearError, setSessionExpired } = authSlice.actions;
+export const { clearError, setSessionExpired, setMessage, clearMessage } = authSlice.actions;
 export default authSlice.reducer;

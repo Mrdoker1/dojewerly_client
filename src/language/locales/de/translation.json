@@ -15,7 +15,7 @@
     "Join #do.jewelry": "Treten Sie #do.jewelry bei",
     "FOLLOW US ON INSTAGRAM": "FOLGEN SIE UNS AUF INSTAGRAM",
     "Home": "Startseite",
-    "сatalog": "Katalog",
+    "catalog": "Katalog",
     "Catalog": "Katalog",
     "Collections": "Kollektionen",
     "Any material": "Jedes Material",
@@ -93,5 +93,15 @@
     "VIEW ALL": "ALLE ANZEIGEN",
     "No products found": "Keine Produkte gefunden",
     "Loading": "Laden",
-    "articles": "Artikel"
+    "articles": "Artikel",
+    "Invalid password!": "Ungültiges Passwort!",
+    "Your access expired!": "Ihr Zugang ist abgelaufen!",
+    "Please sign in again.": "Bitte melden Sie sich erneut an.",
+    "Introducing unique products and special offers not found in the main catalog. Stay tuned for updates!": "Wir präsentieren einzigartige Produkte und Sonderangebote, die Sie im Hauptkatalog nicht finden. Bleiben Sie dran für Updates!",
+    "Save with every purchase! Use our discount card for exclusive discounts!": "Sparen Sie bei jedem Einkauf! Nutzen Sie unsere Rabattkarte für exklusive Rabatte!",
+    "PREORDER": "VORBESTELLEN",
+    "EMAILS": "E-MAILS",
+    "Your account has been created successfully!": "Your account has been created successfully!",
+    "please check your email!": "please check your email!",
+    "Confirmation email sent, please check your email!": "Bestätigungsmail gesendet, bitte überprüfen Sie Ihre E-Mails!"
 }

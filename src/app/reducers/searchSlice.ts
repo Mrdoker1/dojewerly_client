@@ -3,15 +3,13 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { Product } from './productsSlice';
 import { customFetch } from '../../service/apiService';
 
-const apiUrl = process.env.REACT_APP_API_URL;
-
 export const fetchSearchedProducts = createAsyncThunk(
   'search/fetchProducts',
   async (searchQuery: string, thunkAPI) => {
     try {
       const queryString = `q=${searchQuery}`;  // Формирование строки запроса только с параметром поиска
 
-      const response = await customFetch(`/products?${queryString}`);
+      const response = await customFetch(`/products?${queryString}&includeUnavailable=false`);
 
       if (!response.ok) {
         const data = await response.json();
@@ -31,7 +29,7 @@ export const fetchSearchedProductsCount = createAsyncThunk(
     try {
       const queryString = `q=${searchQuery}`;  // Формирование строки запроса только с параметром поиска
 
-      const response = await customFetch(`/products/total?${queryString}`);
+      const response = await customFetch(`/products/total?${queryString}&includeUnavailable=false`);
       
       if (!response.ok) {
         const data = await response.json();
