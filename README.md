@@ -1,9 +1,9 @@
 # DoJewerly Client
 
-![Preview](https://github.com/Mrdoker1/dojewerly_client/assets/26232484/fd9ccf5e-720a-4dd3-b63c-173722bce9e6)
+![Preview](https://github.com/Mrdoker1/dojewerly_client/assets/26232484/cc052429-6f90-4ea9-9824-dfb1f660c8bd)
 
 ## Design:
-[Figma Link](https://www.figma.com/community/file/1313958120387603823/ecommerce-template-dojewelry-com-full)
+[Figma Link]([https://www.figma.com/community/file/1313958120387603823/ecommerce-template-dojewelry-com-full](https://www.figma.com/community/file/1313978942472770939/dojewelry-com-shop-full))
 
 ## Tools:
 * React
