@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.00a01ce8.css",
-    "main.js": "/static/js/main.49e09ddd.js",
+    "main.css": "/static/css/main.1f859d5d.css",
+    "main.js": "/static/js/main.0142127f.js",
     "static/media/hero.mp4": "/static/media/hero.339c3be014506fb62101.mp4",
     "static/media/background.jpg": "/static/media/background.3b26023ead3b1fa15d2d.jpg",
     "static/media/banner-dox-2.jpg": "/static/media/banner-dox-2.bec31eadb3f5de9c6ee0.jpg",
@@ -20,23 +20,23 @@
     "static/media/5.jpg": "/static/media/5.e44092fce357ab05fed0.jpg",
     "static/media/3.jpg": "/static/media/3.8a228fe4e20e177c33f4.jpg",
     "static/media/logo-text.svg": "/static/media/logo-text.b792011e6b8c1e7255cdc11f1e5f18ce.svg",
-    "static/media/no-image-S.svg": "/static/media/no-image-S.30789978ba2e4cf5addcba6e25c9b1df.svg",
-    "static/media/no-image-L.svg": "/static/media/no-image-L.2ff3e9546ff530db3c29bd219be6b316.svg",
-    "static/media/logo.svg": "/static/media/logo.77a1fd4828337caf009e00980dce37cd.svg",
+    "static/media/no-image-S.svg": "/static/media/no-image-S.6c78c3526f7eaa8a232d5c599b0c56eb.svg",
+    "static/media/no-image-L.svg": "/static/media/no-image-L.31a1673fda9c9979c337a65c8c36e5fb.svg",
+    "static/media/logo.svg": "/static/media/logo.388cc93d28bcd7dc58ecc67295be2790.svg",
     "static/media/uploadImage.svg": "/static/media/uploadImage.0ea7e1fbab644962e3280fc1b59934cb.svg",
-    "static/media/dox.svg": "/static/media/dox.0d84278bb26bfdf4df46f266dc4de30c.svg",
+    "static/media/dox.svg": "/static/media/dox.410b8d46c012d3b1eb3cd8323c470d24.svg",
     "static/media/instagram.svg": "/static/media/instagram.e3d09383dbe1a7bc607fd68bf62bb963.svg",
     "static/media/copy.svg": "/static/media/copy.dc9f960b54416e32812827619f516bca.svg",
-    "static/media/eyeOn.svg": "/static/media/eyeOn.b1a8c1b842e816d34ac712bc7f037db6.svg",
-    "static/media/eyeOff.svg": "/static/media/eyeOff.980deeb7f7ea21890c1b4730335dea87.svg",
+    "static/media/eyeOn.svg": "/static/media/eyeOn.228338ce16b7442d46f19f3dbe69a123.svg",
+    "static/media/eyeOff.svg": "/static/media/eyeOff.925d21a2075ea4e9f42fc40fd82d94ab.svg",
     "index.html": "/index.html",
-    "static/media/search.svg": "/static/media/search.c7cb7d43f962913cb0e39e4512485865.svg",
+    "static/media/search.svg": "/static/media/search.12dc15338966272d923e087ff8a21781.svg",
     "static/media/info.svg": "/static/media/info.31c188224f3b6a09d24fd411e6b017a1.svg",
     "static/media/message.svg": "/static/media/message.c016ee7ad600a8d5e5f82c3c0b372405.svg",
-    "static/media/account.svg": "/static/media/account.1ae12062767e0877c6719dcc825be012.svg",
-    "static/media/heart.svg": "/static/media/heart.cb220cd13aab7875b7216e8203b2abff.svg",
-    "static/media/trash.svg": "/static/media/trash.ccf12689fbb2827bfa2416981ecff54b.svg",
-    "static/media/insta.svg": "/static/media/insta.b8d9a201c29e5e8c0059d026ee91167b.svg",
+    "static/media/account.svg": "/static/media/account.9e3b2f9460c0ea49b8ad6408de346931.svg",
+    "static/media/heart.svg": "/static/media/heart.ae37024e9f7fd90817be6f0a8384ef5a.svg",
+    "static/media/trash.svg": "/static/media/trash.21b04116ca2a37f6b296ae12d15e92d3.svg",
+    "static/media/insta.svg": "/static/media/insta.451ca20f94dea2439f15254702e22e72.svg",
     "static/media/material.svg": "/static/media/material.e07650c80799af5a57e12211a4488226.svg",
     "static/media/filter.svg": "/static/media/filter.4b0f9a4a5a700cfb853e204de65f7755.svg",
     "static/media/empty.svg": "/static/media/empty.fa51a368513bb6a1ff4014e83a618ee9.svg",
@@ -53,11 +53,11 @@
     "static/media/close.svg": "/static/media/close.7d79c541311d4632c0df78f96cef1ec4.svg",
     "static/media/plus.svg": "/static/media/plus.39b3e8d3e6646ff9d8e78e6f79363518.svg",
     "static/media/checkmark.svg": "/static/media/checkmark.9650efb0b6e0bb525c673c2d72587722.svg",
-    "main.00a01ce8.css.map": "/static/css/main.00a01ce8.css.map",
-    "main.49e09ddd.js.map": "/static/js/main.49e09ddd.js.map"
+    "main.1f859d5d.css.map": "/static/css/main.1f859d5d.css.map",
+    "main.0142127f.js.map": "/static/js/main.0142127f.js.map"
   },
   "entrypoints": [
-    "static/css/main.00a01ce8.css",
-    "static/js/main.49e09ddd.js"
+    "static/css/main.1f859d5d.css",
+    "static/js/main.0142127f.js"
   ]
 }
