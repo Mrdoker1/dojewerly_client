@@ -34,7 +34,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "CI=false react-scripts build",
+    "build": "cross-env CI=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "sb": "storybook dev -p 6006",
@@ -75,6 +75,7 @@
     "@storybook/react": "^7.2.0",
     "@storybook/react-webpack5": "^7.2.0",
     "@storybook/testing-library": "^0.2.0",
+    "cross-env": "^7.0.3",
     "eslint-plugin-storybook": "^0.6.13",
     "gh-pages": "^6.1.0",
     "redux-mock-store": "^1.5.4",
