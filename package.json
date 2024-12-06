@@ -40,7 +40,7 @@
     "sb": "storybook dev -p 6006",
     "build-sb": "storybook build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -r https://github.com/Mrdoker1/dojewerly_client.git"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
